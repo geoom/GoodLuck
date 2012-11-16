@@ -1,0 +1,175 @@
+package team.goodluck.modelo.objetosnegocio;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.*;
+
+@Entity
+@Table(name = "aporte", catalog = "GOODLUCK-DATA")
+public class Aporte implements java.io.Serializable {
+
+	private static final long serialVersionUID = 2397977958555093698L;
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "id_aporte")
+	private Integer id;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "usu_id_usuario")
+	private Usuario usuario;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "apo_fecha_entrada", nullable = false, length = 10)
+	private Date fechaEntrada;
+	@Column(name = "apo_titulo", nullable = false, length = 45)
+	private String titulo;
+	@Column(name = "apo_autor", nullable = false, length = 45)
+	private String autor;
+	@Column(name = "apo_descripcion", nullable = false, length = 500)
+	private String descripcion;
+	@Column(name = "apo_idioma", length = 45)
+	private String idioma;
+	@Temporal(TemporalType.DATE)
+	@Column(name = "apo_fecha_publicacion", nullable = false, length = 10)
+	private Date fechaPublicacion;
+	@Column(name = "apo_paginas", nullable = false)
+	private int paginas;
+	@Column(name = "apo_habilitado", nullable = false)
+	private boolean habilitado;
+	@Column(name = "apo_votos", nullable = false)
+	private int votos;
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
+	private List<Descarga> descargas = new ArrayList<Descarga>();
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinTable(name="relacion", catalog="GOODLUCK-DATA", joinColumns = { 
+        @JoinColumn(name="apo_id_aporte", nullable=false, updatable=false) }, inverseJoinColumns = { 
+        @JoinColumn(name="eti_id_etiqueta", nullable=false, updatable=false) })
+	private List<Etiqueta> etiquetas=new ArrayList<Etiqueta>();
+	public List<Etiqueta> getEtiquetas() {
+		return etiquetas;
+	}
+
+	public void setEtiquetas(List<Etiqueta> etiquetas) {
+		this.etiquetas = etiquetas;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
+	private List<Comentario> comentarios = new ArrayList<Comentario>(0);
+
+	public Aporte() {
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Date getFechaEntrada() {
+		return fechaEntrada;
+	}
+
+	public void setFechaEntrada(Date fechaEntrada) {
+		this.fechaEntrada = fechaEntrada;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
+	public String getAutor() {
+		return autor;
+	}
+
+	public void setAutor(String autor) {
+		this.autor = autor;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getIdioma() {
+		return idioma;
+	}
+
+	public void setIdioma(String idioma) {
+		this.idioma = idioma;
+	}
+
+	public Date getFechaPublicacion() {
+		return fechaPublicacion;
+	}
+
+	public void setFechaPublicacion(Date fechaPublicacion) {
+		this.fechaPublicacion = fechaPublicacion;
+	}
+
+	public int getPaginas() {
+		return paginas;
+	}
+
+	public void setPaginas(int paginas) {
+		this.paginas = paginas;
+	}
+
+	public boolean isHabilitado() {
+		return habilitado;
+	}
+
+	public void setHabilitado(boolean habilitado) {
+		this.habilitado = habilitado;
+	}
+
+	public int getVotos() {
+		return votos;
+	}
+
+	public void setVotos(int votos) {
+		this.votos = votos;
+	}
+
+	public List<Descarga> getDescargas() {
+		return descargas;
+	}
+
+	public void setDescargas(List<Descarga> descargas) {
+		this.descargas = descargas;
+	}
+
+	public List<Comentario> getComentarios() {
+		return comentarios;
+	}
+
+	public void setComentarios(List<Comentario> comentarios) {
+		this.comentarios = comentarios;
+	}
+
+
+}
