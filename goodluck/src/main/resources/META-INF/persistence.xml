@@ -10,10 +10,12 @@
 		<class>team.goodluck.modelo.objetosnegocio.Etiqueta</class>
 		<class>team.goodluck.modelo.objetosnegocio.Persona</class>
 		<class>team.goodluck.modelo.objetosnegocio.Usuario</class>
+		<class>team.goodluck.modelo.objetosnegocio.Relacion</class>
+		<class>team.goodluck.modelo.objetosnegocio.RelacionId</class>
 		<exclude-unlisted-classes />
 		<properties>
 			<property name="eclipselink.logging.level" value="FINE" />
-			<!--<property name="eclipselink.logging.level.sql" value="FINE" />  -->   
+			<!--<property name="eclipselink.logging.level.sql" value="FINE" /> -->
 		</properties>
 	</persistence-unit>
 </persistence>

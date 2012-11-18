@@ -14,15 +14,15 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "descarga", catalog = "GOODLUCK-DATA")
+@Table(name = "descarga", catalog = "goodluckdata")
 public class Descarga implements java.io.Serializable {
 
 	private static final long serialVersionUID = -8011621707895470786L;
 	
 	@EmbeddedId
 	@AttributeOverrides({
-			@AttributeOverride(name = "usuIdUsuario", column = @Column(name = "usu_id_usuario", nullable = false)),
-			@AttributeOverride(name = "apoIdAporte", column = @Column(name = "apo_id_aporte", nullable = false)) })
+			@AttributeOverride(name = "idUsuario", column = @Column(name = "usu_id_usuario", nullable = false)),
+			@AttributeOverride(name = "idAporte", column = @Column(name = "apo_id_aporte", nullable = false)) })
 	private DescargaId id;
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "apo_id_aporte", nullable = false, insertable = false, updatable = false)

@@ -10,11 +10,16 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "aporte", catalog = "GOODLUCK-DATA")
+@Table(name = "aporte", catalog = "goodluckdata")
+@NamedQueries({@NamedQuery(name = "Aporte.encontrarAportesContexto", query = "SELECT DISTINCT(a) FROM Aporte a, Relacion rel WHERE a.titulo=:titulo AND rel.aporte=a AND rel IN (SELECT r FROM Relacion r WHERE r.etiqueta.nombre IN :etiquetas)") })
 public class Aporte implements java.io.Serializable {
 
 	private static final long serialVersionUID = 2397977958555093698L;
@@ -48,21 +53,15 @@ public class Aporte implements java.io.Serializable {
 	private int votos;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
 	private List<Descarga> descargas = new ArrayList<Descarga>();
-	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinTable(name="relacion", catalog="GOODLUCK-DATA", joinColumns = { 
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
+	private List<Relacion> relaciones = new ArrayList<Relacion>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
+	private List<Comentario> comentarios = new ArrayList<Comentario>();
+	@ManyToMany(cascade=CascadeType.MERGE, fetch=FetchType.LAZY)
+    @JoinTable(name="relacion", catalog="goodluckdata", joinColumns = { 
         @JoinColumn(name="apo_id_aporte", nullable=false, updatable=false) }, inverseJoinColumns = { 
         @JoinColumn(name="eti_id_etiqueta", nullable=false, updatable=false) })
 	private List<Etiqueta> etiquetas=new ArrayList<Etiqueta>();
-	public List<Etiqueta> getEtiquetas() {
-		return etiquetas;
-	}
-
-	public void setEtiquetas(List<Etiqueta> etiquetas) {
-		this.etiquetas = etiquetas;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
-	private List<Comentario> comentarios = new ArrayList<Comentario>(0);
 
 	public Aporte() {
 	}
@@ -171,5 +170,20 @@ public class Aporte implements java.io.Serializable {
 		this.comentarios = comentarios;
 	}
 
+	public List<Relacion> getRelaciones() {
+		return relaciones;
+	}
 
+	public void setRelaciones(List<Relacion> relaciones) {
+		this.relaciones = relaciones;
+	}
+
+	public List<Etiqueta> getEtiquetas() {
+		return etiquetas;
+	}
+
+	public void setEtiquetas(List<Etiqueta> etiquetas) {
+		this.etiquetas = etiquetas;
+	}
+	
 }

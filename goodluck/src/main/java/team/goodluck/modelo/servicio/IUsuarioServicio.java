@@ -2,6 +2,9 @@ package team.goodluck.modelo.servicio;
 
 import java.util.Map;
 
+import org.springframework.transaction.annotation.Transactional;
+
+import team.goodluck.modelo.objetosnegocio.Persona;
 import team.goodluck.modelo.objetosnegocio.Usuario;
 
 
@@ -13,6 +16,6 @@ public interface IUsuarioServicio {
 
 	boolean autentificar(Map<String, String> datosUsuario);
 
-	Usuario cargar();
-
+	Persona cargar();
+	
 }

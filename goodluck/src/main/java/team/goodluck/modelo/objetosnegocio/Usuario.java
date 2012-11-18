@@ -15,14 +15,18 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "usuario", catalog = "GOODLUCK-DATA", uniqueConstraints = @UniqueConstraint(columnNames = "usu_nombre"))
+@Table(name = "usuario", catalog = "goodluckdata", uniqueConstraints = @UniqueConstraint(columnNames = "usu_nombre"))
+@NamedQueries({ @NamedQuery(name = "Usuario.encontrarUsuario", query = "SELECT u FROM Usuario u WHERE u.nombre=:nombre AND u.clave=:clave") })
 public class Usuario implements java.io.Serializable {
-
 
 	private static final long serialVersionUID = 1L;
 
@@ -30,8 +34,8 @@ public class Usuario implements java.io.Serializable {
 	@GeneratedValue(strategy = IDENTITY)
 	@Column(name = "id_usuario", unique = true, nullable = false)
 	private Integer id;
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_usuario", unique = true, nullable = false, insertable = false, updatable = false)
+	@OneToOne
+	@PrimaryKeyJoinColumn
 	private Persona persona;
 	@Column(name = "usu_nombre", unique = true, nullable = false, length = 45)
 	private String nombre;
@@ -47,6 +51,10 @@ public class Usuario implements java.io.Serializable {
 	private List<Aporte> aportes = new ArrayList<Aporte>();
 
 	public Usuario() {
+	}
+
+	public Usuario(int id) {
+		this.id = id;
 	}
 
 	public Integer getId() {

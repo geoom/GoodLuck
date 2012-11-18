@@ -1,17 +1,22 @@
 package team.goodluck.vista.bean;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
+import team.goodluck.modelo.objetosnegocio.Aporte;
+import team.goodluck.modelo.objetosnegocio.Etiqueta;
+import team.goodluck.modelo.objetosnegocio.Usuario;
+import team.goodluck.modelo.servicio.IAccesoServicio;
+import team.goodluck.modelo.servicio.IAporteServicio;
+import team.goodluck.modelo.servicio.IRegistroServicio;
 import team.goodluck.modelo.servicio.IUsuarioServicio;
 
 @Controller
@@ -26,25 +31,53 @@ public class UsuarioBean implements Serializable {
 
 	@Autowired
 	private IUsuarioServicio usuarioServicio;
+	
+	@Autowired
+	private IAporteServicio aporteServicio;
+
+	@Autowired
+	private IRegistroServicio registroServicio;
+
+	@Autowired
+	private IAccesoServicio accesoServicio;
 
 	@PostConstruct
 	public void init() {
 		habilitado = Boolean.TRUE;
 	}
 
-	public void actionIdentificarUsuario() {
-
-		Map<String, String> datosRecogidos = new HashMap<String, String>();
-		datosRecogidos.put("nombre", nombre);
-		datosRecogidos.put("clave", clave);
-
-		if (usuarioServicio.autentificar(datosRecogidos)) {
+	public void validarIdentidad() {
+		if (accesoServicio.validarIdentidad(nombre, clave)) {
 			log.debug("usuario identificado !");
-		}else{
+		} else {
 			log.debug("usuario NO identificado !!");
 		}
 	}
 
+	public void registrarUsuario() {
+		registroServicio.crearUsuario(nombre, clave);
+	}
+
+	public void registrarAporte(){
+		Aporte ap=new Aporte();
+		ap.setTitulo("DCE");
+		List<Etiqueta> etiquetas=new ArrayList<Etiqueta>();
+		etiquetas.add(new Etiqueta(1));
+		etiquetas.add(new Etiqueta(2));
+		etiquetas.add(new Etiqueta(3));
+		ap.setEtiquetas(etiquetas);
+		ap.setUsuario(new Usuario(1));  
+		aporteServicio.registrarAporte(ap);
+	}
+	
+	public void encontrarAportes(){
+	 List<Aporte> aportesEncontrados=new ArrayList<Aporte>();
+	 aportesEncontrados=aporteServicio.encontrarAportesPorContextoTitulo("DCE","Programacion");
+	 for(Aporte a:aportesEncontrados){
+	  System.out.println(a.getId());	 
+	 }
+	}
+	
 	public String getClave() {
 		return clave;
 	}

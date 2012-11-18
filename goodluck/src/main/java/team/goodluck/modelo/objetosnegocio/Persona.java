@@ -10,21 +10,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name = "persona", catalog = "GOODLUCK-DATA")
+@Table(name = "persona", catalog = "goodluckdata")
 public class Persona implements java.io.Serializable {
 
 	private static final long serialVersionUID = -6392380033713383485L;
 	
 	@Id
-	@GeneratedValue(strategy = IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id_persona", unique = true, nullable = false)
 	private Integer id;
 	@Column(name = "per_nombre", nullable = false, length = 50)
@@ -37,15 +38,19 @@ public class Persona implements java.io.Serializable {
 	@Column(name = "per_fecha_nacimiento", nullable = false, length = 10)
 	private Date fechaNacimiento;
 	@Column(name = "per_sexo", nullable = false)
-	private byte sexo;
+	private Character sexo;
 	@Column(name = "per_correo_electronico", nullable = false, length = 50)
 	private String correoElectronico;
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "persona")
-	private List<Usuario> usuarios = new ArrayList<Usuario>();
+	@OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "persona")
+	private Usuario usuario;
 
 	public Persona() {
 	}
 
+	public Persona(int id) {
+		this.id=id;
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -86,11 +91,11 @@ public class Persona implements java.io.Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public byte getSexo() {
+	public Character getSexo() {
 		return sexo;
 	}
 
-	public void setSexo(byte sexo) {
+	public void setSexo(Character sexo) {
 		this.sexo = sexo;
 	}
 
@@ -102,12 +107,12 @@ public class Persona implements java.io.Serializable {
 		this.correoElectronico = correoElectronico;
 	}
 
-	public List<Usuario> getUsuarios() {
-		return usuarios;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }
