@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
+	<persistence-unit name="goodluck" transaction-type="RESOURCE_LOCAL">
+		<class>team.goodluck.modelo.objetosnegocio.Aporte</class>
+		<class>team.goodluck.modelo.objetosnegocio.Comentario</class>
+		<class>team.goodluck.modelo.objetosnegocio.Descarga</class>
+		<class>team.goodluck.modelo.objetosnegocio.DescargaId</class>
+		<class>team.goodluck.modelo.objetosnegocio.Etiqueta</class>
+		<class>team.goodluck.modelo.objetosnegocio.Persona</class>
+		<class>team.goodluck.modelo.objetosnegocio.Usuario</class>
+		<class>team.goodluck.modelo.objetosnegocio.Relacion</class>
+		<class>team.goodluck.modelo.objetosnegocio.RelacionId</class>
+		<exclude-unlisted-classes />
+		<properties>
+			<property name="eclipselink.logging.level" value="FINE" />
+			<!--<property name="eclipselink.logging.level.sql" value="FINE" /> -->
+		</properties>
+	</persistence-unit>
+</persistence>

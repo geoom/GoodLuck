@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+
+<!--
+    Document   : log4j.xml
+    Created on : 7 de enero de 2012, 21:22
+    Author     : GEORGE MEJIA
+    Description:
+        Este documento es el archivo de configuracion del sistema de registros Apache log4j
+-->
+<!-- Se indica que se usará el namespace "log4j" para definir los elementos de configuración de log4j -->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="logger" class="org.apache.log4j.ConsoleAppender">
+        <param name="target" value="System.out" />
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{dd MMM yyyy - HH:mm:ss} [%-5p] %c{2} - %m%n" />
+        </layout>
+
+        <filter class="org.apache.log4j.varia.LevelMatchFilter">
+            <param name="LevelToMatch" value="fatal" /> <!-- a los mensajes de nivel fatal los rechazara-->
+            <param name="AcceptOnMatch" value="false" /> 
+        </filter>
+      
+        <filter class="org.apache.log4j.varia.LevelRangeFilter">
+            <param name="LevelMin" value="trace" />
+            <param name="LevelMax" value="fatal" />
+            <param name="AcceptOnMatch" value="true" />
+        </filter>
+    </appender>
+
+    <!-- Configuracion del looger principal -->
+    <root>
+        <priority value="trace" />
+        <appender-ref ref="logger" />
+    </root>
+    
+</log4j:configuration>
