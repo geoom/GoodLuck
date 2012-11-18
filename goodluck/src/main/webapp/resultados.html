@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+ <h:head>
+    <meta charset="utf-8">
+    <title>Encuentra</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap -->
+    	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
+    
+    <!-- GoodLuck -->
+    <h:outputStylesheet library="goodluck" name="css/goodluck.css" />
+        
+    <style type="text/css">
+          body {
+            padding-top: 40px;
+          }
+          .sidebar-nav {
+            padding: 9px 0;
+          }
+          #contexto-buscar_tagsinput{
+
+          }
+    </style>
+      <h:outputStylesheet library="bootstrap" name="css/bootstrap-responsive.css" />
+    <h:outputStylesheet library="goodluck" name="css/goodluck-responsive.css" />
+ 
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- The icon -->
+    <!-- Xoxco -->
+    <h:outputStylesheet library="xoxco" name="jquery.tagsinput.css" />
+
+    <link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico">
+ </h:head>
+
+      <h:body data-spy="scroll" data-target=".bs-docs-sidebar">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="home.html">GoodLuck</a>
+              <div class="nav-collapse collapse">
+                <ul class="nav">
+                  <li><a href="home.html">Inicio</a></li>
+            <li><a href="encontrar.html">Encontrar</a></li>
+            <li><a href="ayuda.html">Ayuda</a></li>
+                </ul>
+              </div><!--/.nav-collapse -->
+              <div class="navbar-form pull-right">
+            <div class="btn-group">
+                <a class="btn btn-primary" href="perfil.html"><i class="icon-user icon-white"></i> George Mejia</a>
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="nuevoAporte.html"><i class="icon-upload"></i> Subir aporte</a></li>
+                  <li><a href="cuenta.html"><i class="icon-pencil"></i> Mi cuenta</a></li>
+                  <li><a href="aportes.html"><i class="icon-file"></i> Aportes</a></li>
+                  <li class="divider"></li>
+                  <li><a href="index.html"><i class="icon-share-alt"></i> Cerrar sesi&oacute;n</a></li>
+                </ul>
+              </div>
+          </div>
+            </div>
+          </div>
+    </nav>
+    <header class="tema-principal">
+      <div style="padding: 40px 0; position: relative; background-color: #F5F5F5;">
+        <div class="container">
+          <h1>Resultados encontrados para ...</h1>
+          <p class="lead">"programacion con java" - tecnologia, java</p>
+        </div>
+      </div>
+    </header>
+
+  <div class="container">
+          <div id="search-results" >
+            <div id="results">
+                <div class="row-fluid">
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Herbled swich&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;The complete reference Javan 2 fifth edition&lt;/p&gt;" data-original-title="Java 2 The complete reference">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java1.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Java 2 The complete reference</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div rel="popover" class="span2 aporte" data-content="&lt;p&gt;Wrok&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Java Development with the Spring Framework&lt;/p&gt;" data-original-title="Java Development with the Spring Framework">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java10.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Java Development with the Spring </span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;KAthy barrein&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Head First Java&lt;/p&gt;" data-original-title="Head First Java">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java3.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Head First Java</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Jenie Innesji&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Java 2 Certification&lt;/p&gt;" data-original-title="Java 2 Certification">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java4.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Java 2 Certification</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Sams Teach Yourlself&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Java 6 in 21 days" data-original-title="Java 6">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java5.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">Java 6</div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Apress&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Pro Java 7 NIO&lt;/p&gt;" data-original-title="Java 7 NIO ">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java6.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Java 7 NIO</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+               <div class="row-fluid">
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Barry Band&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Beginning Programming with Java for DUMMIES&lt;/p&gt;" data-original-title="Beginning Programming with Java">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java7.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Beginning Programming with Java</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Oreally&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Learning Java Second edition&lt;/p&gt;" data-original-title="Learning Java">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java8.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Learning Java</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Ying Bai&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Practical Database Programming with Java&lt;/p&gt;" data-original-title="Practical Database with Java">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java9.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Practical Database with Java</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Breth sccott&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Pro Java Programming Second Edition&lt;/p&gt;" data-original-title="Pro Java Programming">
+                    <a href="aporte.html">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java2.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Pro Java Programming</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>                  
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Jeff Roeckman&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Beginning Java 7 &lt;/p&gt;" data-original-title="Beginning Java 7 ">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java11.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Java 7</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="span2 aporte" rel="popover" data-content="&lt;p&gt;Deitel&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;Java how to program&lt;/p&gt;" data-original-title="Java how to program">
+                    <a href="#">
+                      <div class="content-aporte">
+                        <div class="portada">
+                          <img src="resources/img-book/java14.jpeg" height="703" width="543">
+                        </div>
+                        <div class="titulo">
+                            <span>Java</span>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+
+  </div>
+
+
+
+        <!-- Footer
+        ================================================== -->
+        <footer class="footer">
+          <div class="container">
+            <p class="pull-right">
+                <select id="lang-opcion" class="lang-opcion" style="">
+                  <option value="es"> ‪Español (Latinoamérica)‬ </option>
+                  <option value="en"> ‪English (United States)‬ </option>
+                </select>
+            </p>
+            <p>Descubre a GoodLuck en un <a href="http://www.youtube.com/watch?v=APdeX6p9Zno" target="_blank">Video</a>.</p>
+            <ul class="footer-links">
+              <li><a href="#">Acerca de GoodLuck</a></li>
+              <li><a href="#">Pol&iacute;ticas del programa</a></li>
+              <li><a href="#">Condiciones de uso</a></li>
+            </ul>
+            <p>&copy; 2012 GoodLuck</p>
+          </div>
+        </footer>
+
+
+<h:outputScript library="bootstrap" name="js/ext/jquery.js" />
+   <h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+  <h:outputScript library="xoxco" name="jquery.tagsinput.js" />
+      <h:outputScript library="goodluck" name="js/application.js" />
+   
+    <script type="text/javascript">
+      $(function() {
+            $('#contexto-buscar').tagsInput({
+              width:'auto',
+              defaultText :''
+            })
+            $("#contexto-buscar_tag").popover({
+              trigger: 'focus', 
+              content: 'Indicanos sobre que campo de conocimiento estamos hablando',
+              placement: 'bottom'
+            });
+            $("#botonBusqueda").click(function(){
+              $("#search-results").css("display", "block");
+            });
+      });
+    </script>
+ </h:body>
+</html>
