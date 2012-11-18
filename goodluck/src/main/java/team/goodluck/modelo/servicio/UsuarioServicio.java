@@ -21,16 +21,12 @@ import team.goodluck.modelo.objetosnegocio.Usuario;
 @Service
 public class UsuarioServicio implements IUsuarioServicio, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Override
-	public Persona cargar() {
-
-		return null;
-	}
+	@Autowired
+	IPersonaDao daoPersona;
+	@Autowired
+	IUsuarioDao daoUsuario;
 
 	@Override
 	public boolean autentificar(Map<String, String> datosUsuario) {
@@ -47,4 +43,30 @@ public class UsuarioServicio implements IUsuarioServicio, Serializable {
 		return false;
 	}
 
+	@Override
+    @Transactional
+	public void crearUsuario(String nombre, String clave) {
+		Persona p=new Persona();
+		p.setApellidoPaterno("asd");
+		p.setApellidoMaterno("aa");
+		p.setNombre("s");
+		p.setCorreoElectronico("s");
+		p.setSexo('M');
+		p.setFechaNacimiento(new Date());
+		daoPersona.create(p);
+		Usuario u=new Usuario();
+		u.setNombre(nombre);
+		u.setClave(clave);
+		u.setPersona(p);
+		daoUsuario.create(u);
+	}
+	
+	@Override
+    @Transactional
+	public Usuario registrarUsuario(Usuario usuarioACrear, Persona personaSolicitante){
+		daoPersona.create(personaSolicitante);
+		usuarioACrear.setPersona(personaSolicitante);
+		return daoUsuario.create(usuarioACrear);
+	}
+	
 }

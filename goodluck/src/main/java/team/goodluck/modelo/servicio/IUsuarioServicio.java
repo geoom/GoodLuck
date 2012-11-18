@@ -15,7 +15,8 @@ import team.goodluck.modelo.objetosnegocio.Usuario;
 public interface IUsuarioServicio {
 
 	boolean autentificar(Map<String, String> datosUsuario);
-
-	Persona cargar();
 	
+	Usuario registrarUsuario(Usuario usuarioACrear, Persona personaSolicitante);
+	
+	void crearUsuario(String nombre, String clave);
 }
