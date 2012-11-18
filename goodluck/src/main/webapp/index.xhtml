@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
-	<title>Good Luck</title>
-	<meta charset="utf-8" />
+	<h:title>Good Luck</h:title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="" />
 	<meta name="author" content="George Mejia" />
@@ -18,40 +16,38 @@
 	<h:outputScript library="bootstrap" name="js/bootstrap.js" />
 
 	<!-- GoodLuck -->
-	<h:outputStylesheet library="bootstrap" name="css/goodluck.css" />
+	<h:outputStylesheet library="goodluck" name="css/goodluck.css" />
 
 	<style type="text/css">
-body {
-	padding-top: 40px;
-}
-
-.sidebar-nav {
-	padding: 9px 0;
-}
-
-.footer-links a {
-	color: #06AAFC;
-}
-</style>
-	<h:outputStylesheet library="bootstrap"
-		name="css/bootstrap-responsive.css" />
-
-
+		body {
+			padding-top: 40px;
+		}
+		
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+		
+		.footer-links a {
+			color: #06AAFC;
+		}
+	</style>
+	
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap-responsive.css" />
+	
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
-		      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		    <![endif]-->
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
 </h:head>
 <h:body>
 	<header class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse"
-				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
-				class="icon-bar"></span> <span class="icon-bar"></span>
-			</a> <a class="brand" href="index.html">GoodLuck</a>
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="index.html">GoodLuck</a>
+			</div>
 		</div>
-	</div>
 	</header>
 	<div class="front-goodluck">
 		<img class="front-image" src="resources/goodluck/img/boy-reading.jpg" />
@@ -61,10 +57,9 @@ body {
 			<div class="container-fluid">
 				<div class="row-fluid">
 					<div class="span6">
-						<h1 style="font-size: 60px; color: #2f4f4f">Good Luck</h1>
-						<p
-							style="background: rgba(255, 228, 196, 0.5); font-size: 16px; margin-top: 10px;">Good
-							Luck es una gran herramienta que defiende la limpia proliferación
+						<h1 style="font-size: 60px; color: #2f4f4f">Good Luck!</h1>
+						<p style="background: rgba(255, 228, 196, 0.5); font-size: 16px; margin-top: 10px;">
+						GoodLuck es una gran herramienta que defiende la limpia proliferación
 							de la información, la información estructurada, oportuna y
 							completa. Atrevete a vivir una experiencia nueva.</p>
 					</div>
@@ -72,12 +67,11 @@ body {
 						<div class="sign-in">
 							<div class="signin-front">
 								<form>
-									<input type="text" placeholder="Nombre de usuario" /> <input
-										type="password" placeholder="Contrase&ntilde;a" />
+									<input type="text" placeholder="Nombre de usuario" /> 
+									<input type="password" placeholder="Contrase&ntilde;a" />
 									<p style="display: block">
-										<label class="checkbox"
-											style="display: inline-block; cursor: pointer"> <input
-											type="checkbox" /> Recordarme
+										<label class="checkbox" style="display: inline-block; cursor: pointer"> 
+											<input type="checkbox" /> Recordarme
 										</label>
 										<!--
 										    <button type="submit" class="btn btn-primary" style="float: right">Ingresar</button> -->
@@ -101,7 +95,8 @@ body {
 			style="background-color: transparent; border-top: 0px; color: rgba(255, 255, 255, 0.25); margin-top: 200px; padding: 30px 0;">
 		<div class="container">
 			<p class="pull-right">
-				<select id="lang-opcion" class="lang-opcion" style="background-color: transparent">
+				<select id="lang-opcion" class="lang-opcion"
+					style="background-color: transparent">
 					<option value="es">‪Español (Latinoamérica)‬</option>
 					<option value="en">‪English (United States)‬</option>
 				</select>
