@@ -16,7 +16,6 @@ import team.goodluck.modelo.objetosnegocio.Etiqueta;
 import team.goodluck.modelo.objetosnegocio.Usuario;
 import team.goodluck.modelo.servicio.IAccesoServicio;
 import team.goodluck.modelo.servicio.IAporteServicio;
-import team.goodluck.modelo.servicio.IRegistroServicio;
 import team.goodluck.modelo.servicio.IUsuarioServicio;
 
 @Controller
@@ -28,15 +27,12 @@ public class UsuarioBean implements Serializable {
 	private String clave;
 	private Boolean habilitado;
 	private String nombre;
-
-	@Autowired
-	private IUsuarioServicio usuarioServicio;
 	
 	@Autowired
 	private IAporteServicio aporteServicio;
 
 	@Autowired
-	private IRegistroServicio registroServicio;
+	private IUsuarioServicio usuarioServicio;
 
 	@Autowired
 	private IAccesoServicio accesoServicio;
@@ -55,7 +51,7 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public void registrarUsuario() {
-		registroServicio.crearUsuario(nombre, clave);
+		usuarioServicio.crearUsuario(nombre, clave);
 	}
 
 	public void registrarAporte(){
