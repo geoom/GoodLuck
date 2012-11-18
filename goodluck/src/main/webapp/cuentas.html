@@ -1,0 +1,155 @@
+    <!DOCTYPE html>
+    <html lang="es"  xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    	<h:head>
+    		<title>Good Luck</title>
+    		<meta charset="utf-8"> 
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		    <meta name="description" content="">
+		    <meta name="author" content="George Mejia">
+    		<!-- Bootstrap -->
+    		<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
+		   	<h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+		  
+		    <!-- GoodLuck -->
+		    <h:outputStylesheet library="goodluck" name="css/goodluck.css" />
+		    
+		    <style type="text/css">
+				body {
+        			padding-top: 60px;
+				}
+				.sidebar-nav {
+					padding: 9px 0;
+				}
+		    </style> 
+		     <h:outputStylesheet library="bootstrap" name="css/bootstrap-responsive.css" />
+		  		     <h:outputStylesheet library="goodluck" name="css/goodluck-responsive.css" />
+		 
+		    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+		    <!--[if lt IE 9]>
+		      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		    <![endif]-->
+		    <!-- The icon -->
+    		<link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico">
+    	 </h:head>
+	   <h:body class="nueva-cuenta">
+	    	<header class="navbar navbar-inverse navbar-fixed-top">
+		      <div class="navbar-inner">
+		        <div class="container">
+		          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </a>
+		          <a class="brand" href="home.html">GoodLuck</a>
+		          <div class="nav-collapse collapse">
+		            <ul class="nav">
+		              <li><a href="home.html">Inicio</a></li>
+		              <li><a href="ayuda.html">Ayuda</a></li>
+		            </ul>
+		            <div class="navbar-form pull-right">
+		            	<a class="btn btn-success" href="#myModal" data-toggle="modal">Iniciar sesi&oacute;n</a>
+		            </div>	
+		            
+		          </div><!--/.nav-collapse -->
+		        </div>
+		      </div>
+		    </header>
+			<div class="container">
+	    	    <div class="container-fluid">
+				    <div class="row-fluid">					    
+					    <div class="span6">
+						    <div class="sign-in" >
+						    	<div class="signin-box">
+						    		<form id="registroCuenta">
+						    			<label>Nombre</label>
+									    <input id="nombre-nuevacuenta" type="text">
+									    <span id="nameInfo"></span>
+									    <label>Apellidos</label>
+									    <input id="apellidos-nuevacuenta" type="text">
+									    <span id="apellidosInfo"></span>
+									    <label>Correo electr&oacute;nico</label>
+									    <input id="email-nuevacuenta" type="text">
+									    <span id="emailInfo"></span>
+									    <label>Nombre de usuario</label>
+									    <input id="nombre-usuario-nuevacuenta" type="text">
+									    <span id="usuarioInfo"></span>
+									    <label>Contrase&ntilde;a</label>
+									    <input id="clave-nuevacuenta" type="password">
+									    <span id="claveInfo"></span>
+									    <label class="checkbox" style="cursor: pointer">
+											<input id="terminosCondiciones"  type="checkbox"> Estoy de acuerdo con las pol&iacute;ticas y las condiciones de Goodluck.
+										</label>
+									    <p style="margin-top:20px">
+										<button id="registroCuenta_boton" class="btn btn-large btn-success disabled" type="submit" >Terminar mi registro</button>
+										</p>
+								    </form>
+						    	</div>
+						    </div>
+				    	</div>
+						<div class="span6">
+					    	    <div class="page-header">
+							    	<h2>Obtenga una cuenta, es gratuita :)</h2>
+							    </div>
+					    </div>
+			    	</div>
+	    		</div>
+	    	</div>
+
+	    	<!-- Footer
+		    ================================================== -->
+		    <footer class="footer">
+		      <div class="container">
+		        <p class="pull-right">
+		            <select id="lang-opcion" class="lang-opcion" style="">
+		              <option value="es"> ‪Español (Latinoamérica)‬ </option>
+		              <option value="en"> ‪English (United States)‬ </option>
+		            </select>
+		        </p>
+		        <p>Descubre a GoodLuck en un <a href="http://www.youtube.com/watch?v=APdeX6p9Zno" target="_blank">Video</a>.</p>
+		        <ul class="footer-links">
+		          <li><a href="#">Acerca de GoodLuck</a></li>
+		          <li><a href="#">Pol&iacute;ticas del programa</a></li>
+		          <li><a href="#">Condiciones de uso</a></li>
+		        </ul>
+		        <p>&copy; 2012 GoodLuck</p>
+		      </div>
+		    </footer>
+
+		    <!-- Modal -->
+			<div id="myModal" class="modal hide fade in" style="display: none; ">  
+				<div class="modal-header">  
+					<a class="close" data-dismiss="modal">×</a>  
+					<h3>Indentificaci&oacute;n</h3>  
+				</div>  
+				<div class="form-horizontal">
+		          <div class="control-group">
+		            <label class="control-label" for="login-usuario">Usuario</label>
+		            <div class="controls">
+		              <input type="text" id="login-usuario" placeholder="Usuario">
+		            </div>
+		          </div>
+		          <div class="control-group">
+		            <label class="control-label" for="login-clave">Contrase&ntilde;a</label>
+		            <div class="controls">
+		              <input type="password" id="login-clave" placeholder="Contrase&ntilde;a">
+		            </div>
+		          </div>
+		        </div>
+				<div class="modal-footer">  
+					<a href="home.html" class="btn btn-primary">Ingresar a GoodLuck!</a>  
+					<a href="#" class="btn" data-dismiss="modal">Salir de aqu&iacute;</a>  
+				</div>  
+			</div>  
+
+			<!-- Le javascript
+		    ================================================== -->
+		    <!-- Placed at the end of the document so the pages load faster -->
+		   <h:outputScript library="bootstrap" name="js/ext/jquery.js" />
+   <h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+   <h:outputScript library="goodluck" name="js/application.js" />
+   <h:outputScript library="goodluck" name="js/validation.js" />
+		   
+  </h:body>
+    </html>

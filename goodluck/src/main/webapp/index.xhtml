@@ -1,24 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-    <h:head>
-    	<h:outputStylesheet library="css" name="table-style.css"  />
-    </h:head>
- 
-    <h:body>
-    	<h1>GoodLuck</h1>
-    	<h:form>
-    	<h:panelGrid columns="2">
-    	<h:outputText value="Nombre de usuario"/>
-    	<h:inputText value="#{usuarioBean.nombre}"/>
-    	<h:outputText value="Clave"/>
-    	<h:inputText value="#{usuarioBean.clave}"/>
-    	<h:commandButton value="Leer nombre" action="#{usuarioBean.actionIdentificarUsuario()}"/>
-    	</h:panelGrid>
-    	</h:form>
-    </h:body>
- 
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Good Luck</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="George Mejia" />
+	<!-- The icon -->
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
+	<!-- Bootstrap -->
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
+	<h:outputScript library="bootstrap" name="js/bootstrap.js" />
+
+	<!-- GoodLuck -->
+	<h:outputStylesheet library="bootstrap" name="css/goodluck.css" />
+
+	<style type="text/css">
+body {
+	padding-top: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+.footer-links a {
+	color: #06AAFC;
+}
+</style>
+	<h:outputStylesheet library="bootstrap"
+		name="css/bootstrap-responsive.css" />
+
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		    <![endif]-->
+</h:head>
+<h:body>
+	<header class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse"
+				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+				class="icon-bar"></span> <span class="icon-bar"></span>
+			</a> <a class="brand" href="index.html">GoodLuck</a>
+		</div>
+	</div>
+	</header>
+	<div class="front-goodluck">
+		<img class="front-image" src="resources/goodluck/img/boy-reading.jpg" />
+	</div>
+	<div class="container-main">
+		<div class="container">
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span6">
+						<h1 style="font-size: 60px; color: #2f4f4f">Good Luck</h1>
+						<p
+							style="background: rgba(255, 228, 196, 0.5); font-size: 16px; margin-top: 10px;">Good
+							Luck es una gran herramienta que defiende la limpia proliferación
+							de la información, la información estructurada, oportuna y
+							completa. Atrevete a vivir una experiencia nueva.</p>
+					</div>
+					<div class="span6">
+						<div class="sign-in">
+							<div class="signin-front">
+								<form>
+									<input type="text" placeholder="Nombre de usuario" /> <input
+										type="password" placeholder="Contrase&ntilde;a" />
+									<p style="display: block">
+										<label class="checkbox"
+											style="display: inline-block; cursor: pointer"> <input
+											type="checkbox" /> Recordarme
+										</label>
+										<!--
+										    <button type="submit" class="btn btn-primary" style="float: right">Ingresar</button> -->
+										<a href="home.html" class="btn btn-primary"
+											style="float: right">Ingresar</a>
+									</p>
+									<p style="display: block">
+										<a href="cuentas.html">&iquest;No tienes una cuenta?</a>
+									</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Footer
+			    ================================================== -->
+		<footer class="footer"
+			style="background-color: transparent; border-top: 0px; color: rgba(255, 255, 255, 0.25); margin-top: 200px; padding: 30px 0;">
+		<div class="container">
+			<p class="pull-right">
+				<select id="lang-opcion" class="lang-opcion" style="background-color: transparent">
+					<option value="es">‪Español (Latinoamérica)‬</option>
+					<option value="en">‪English (United States)‬</option>
+				</select>
+			</p>
+			<ul class="footer-links">
+				<li><a href="#">Acerca de GoodLuck</a></li>
+				<li><a href="#">Pol&iacute;ticas del programa</a></li>
+				<li><a href="#">Condiciones de uso</a></li>
+				<li>&copy; 2012 GoodLuck</li>
+			</ul>
+		</div>
+		</footer>
+	</div>
+	<!-- Le javascript
+		    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<h:outputScript library="bootstrap" name="js/ext/jquery.js" />
+	<h:outputScript library="bootstrap"
+		name="js/ext/bootstrap-transition.js" />
+	<h:outputScript library="bootstrap" name="js/ext/bootstrap-collapse.js" />
+	<h:outputScript library="bootstrap" name="js/ext/bootstrap-button.js" />
+	<h:outputScript library="goodluck" name="js/application.js" />
+</h:body>
 </html>
