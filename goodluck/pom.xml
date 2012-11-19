@@ -85,7 +85,7 @@
 			<artifactId>org.eclipse.persistence.nosql</artifactId>
 			<version>${eclipselink.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>javax.persistence</artifactId>
