@@ -1,87 +1,86 @@
-
 /* 	Tablet a escritorio	*/
-@media (min-width: 768px) and (max-width: 980px){
-	.tema-principal{
-	    padding: 25px 20px;
+@media ( min-width : 768px) and (max-width: 980px) {
+	.tema-principal {
+		padding: 25px 20px;
 		margin-top: -20px;
 		margin-right: -20px;
 		margin-left: -20px;
 	}
+	.sign-in {
+		margin: 0 auto;
+		width: 70%;
+	}
 }
 
 /* Tablet */
-@media (max-width: 768px){
-	.tema-principal{
+@media ( max-width : 768px) {
+	.tema-principal {
 		padding: 25px 20px;
-	    margin-top:   -20px; /* Offset bottom margin on .navbar */
-	    margin-right: -20px;
-	    margin-left:  -20px;
+		margin-top: -20px; /* Offset bottom margin on .navbar */
+		margin-right: -20px;
+		margin-left: -20px;
 	}
-
 	.footer {
 		margin-left: -20px;
 		margin-right: -20px;
 		padding-left: 20px;
 		padding-right: 20px;
 	}
-
 	.footer p {
-    	margin-bottom: 9px;
-  	}
-
-  	.aporte-contenido .resumen{
-  		margin-top: 10px;
-  		margin-left: 20px;
-  		width: 250px;
-  	}
+		margin-bottom: 9px;
+	}
+	.aporte-contenido .resumen {
+		margin-top: 10px;
+		margin-left: 20px;
+		width: 250px;
+	}
+	
+	.sign-in {
+    margin: 0 auto;
+    width: 80%;
+}
 }
 
 /* Landscape phones */
-@media (max-width: 480px) {
-	.tema-principal h1{
+@media ( max-width : 480px) {
+	.tema-principal h1 {
 		font-size: 45px;
 	}
-
-	.tema-principal p{
+	.tema-principal p {
 		font-size: 20px;
 	}
-
-	.tema-principal h1, .tema-principal p{
+	.tema-principal h1,.tema-principal p {
 		text-align: center;
 	}
-
-	.aporte-contenido .resumen{
-  		margin-left: 25px;
-  		width: 370px;
-  	}
-
-  	.aporte-contenido .portada{
-	    margin: 0 auto;
+	.aporte-contenido .resumen {
+		margin-left: 25px;
+		width: 370px;
 	}
-
-	.resumen .items{
-    	margin: 10px 10px;
+	.aporte-contenido .portada {
+		margin: 0 auto;
 	}
-
-	.items li{
-    	float: left;
+	.resumen .items {
+		margin: 10px 10px;
+	}
+	.items li {
+		float: left;
 		width: 20%;
 	}
-
 	.footer .pull-right {
-    	float: none;
-  	}
+		float: none;
+	}
+	
+	.sign-in {
+    margin: 0 auto;
+    width: 95%;
+}
 }
 
-
-
-@media (max-width: 979px) and (min-width: 768px){
-	.aporte-contenido .span3{
+@media ( max-width : 979px) and (min-width: 768px) {
+	.aporte-contenido .span3 {
 		width: 196px;
 	}
-
-	.aporte-contenido .span9{
+	.aporte-contenido .span9 {
 		width: 508px;
 	}
-
 }

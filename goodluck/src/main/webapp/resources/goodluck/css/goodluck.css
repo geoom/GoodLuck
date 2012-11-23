@@ -37,8 +37,7 @@ img {
 
 .sign-in {
     margin: 0 auto;
-    width: 360px;
-
+    width: 50%;
 }
 
 .signin-box{
@@ -471,7 +470,7 @@ ul.lista-aportes li img{
 
 .no-error {
     border: 1px solid #CBD1D3!important;
-    background-image: url(../img/check.png);
+    background-image:url("#{resource['images:check.png']}");
     background-repeat: no-repeat;
     background-position: right center;
 }
