@@ -68,10 +68,10 @@ body {
 					</div>
 					<div class="sign-in">
 							<div class="signin-front">
-								<form>
-									<input type="text" placeholder="Nombre de usuario" /> 
-									<input type="password" placeholder="Contrase&ntilde;a" />
-									<p style="display: block">
+								<h:form>
+									<h:inputText value="#{accesoBean.usuario.nombre}" placeholder="Nombre de usuario" />
+									<h:inputText value="#{accesoBean.usuario.clave}" autocomplete="off" class="passwordInputText" placeholder="Contrase&ntilde;a" />
+										<p style="display: block">
 										<label class="checkbox" style="display: inline-block; cursor: pointer"> 
 											<input type="checkbox" /> Recordarme
 										</label>
@@ -83,7 +83,7 @@ body {
 									<p style="display: block">
 										<a href="nuevaCuenta.xhtml">&iquest;No tienes una cuenta?</a>
 									</p>
-								</form>
+								</h:form>
 							</div>
 						</div>
 				</div>

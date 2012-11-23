@@ -24,7 +24,11 @@ body {
 .sidebar-nav {
 	padding: 9px 0;
 }
-	</style>
+
+.passwordInputText {
+	-webkit-text-security: disc;
+}
+</style>
 	<h:outputStylesheet library="bootstrap"
 		name="css/bootstrap-responsive.css" />
 	<h:outputStylesheet library="goodluck"
@@ -63,31 +67,43 @@ body {
 		<div class="container-fluid">
 			<div class="row-fluid">
 				<div class="span12">
-				<div class="page-header">
+					<div class="page-header">
 						<h2>Obtenga una cuenta, es gratuita :)</h2>
 					</div>
 					<div class="sign-in">
 						<div class="signin-box">
-							<form id="registroCuenta">
-								<label>Nombre</label> <input id="nombre-nuevacuenta" type="text" ></input>
-								<span id="nameInfo"></span> <label>Apellidos</label> <input
-									id="apellidos-nuevacuenta" type="text"/><span
-									id="apellidosInfo"></span> <label>Correo
-										electr&oacute;nico</label> <input id="email-nuevacuenta" type="text" />
-									<span id="emailInfo"></span> <label>Nombre de usuario</label> <input
-									id="nombre-usuario-nuevacuenta" type="text" /> <span
-									id="usuarioInfo"></span> <label>Contrase&ntilde;a</label> <input
-									id="clave-nuevacuenta" type="password" /> <span id="claveInfo"></span>
+							<h:form id="registroCuenta" prependId="false">
+								<label>Nombre</label>
+								<h:inputText id="nombre-nuevacuenta"
+									value="#{registroBean.persona.nombre}" />
+								<span id="nameInfo"></span>
+								<label>Apellidos</label>
+								<h:inputText id="apellidos-nuevacuenta"
+									value="#{registroBean.persona.apellidoPaterno}" />
+								<span id="apellidosInfo"></span>
+								<label>Correo electr&oacute;nico</label>
+								<h:inputText id="email-nuevacuenta"
+									value="#{registroBean.persona.correoElectronico}" />
+								<span id="emailInfo"></span>
+								<label>Nombre de usuario</label>
+								<h:inputText id="nombre-usuario-nuevacuenta"
+									value="#{registroBean.usuario.nombre}" />
+								<span id="usuarioInfo"></span>
+								<label>Contrase&ntilde;a</label>
+								<h:inputText id="clave-nuevacuenta"
+									value="#{registroBean.usuario.clave}" autocomplete="off"
+									class="passwordInputText" />
+								<span id="claveInfo"></span>
 								<label class="checkbox" style="cursor: pointer"> <input
 									id="terminosCondiciones" type="checkbox" /> Estoy de acuerdo
 									con las pol&iacute;ticas y las condiciones de Goodluck.
 								</label>
 								<p style="margin-top: 20px">
-									<button id="registroCuenta_boton"
-										class="btn btn-large btn-success disabled" type="submit">
-										Terminar mi registro</button>
+									<h:commandButton action="#{registroBean.registrarUsuario()}"
+										value="Terminar mi registro" id="registroCuenta_boton"
+										class="btn btn-large btn-success disabled" />
 								</p>
-							</form>
+							</h:form>
 						</div>
 					</div>
 				</div>
@@ -128,14 +144,14 @@ body {
 			<div class="control-group">
 				<label class="control-label" for="login-usuario">Usuario</label>
 				<div class="controls">
-					<input type="text" id="login-usuario" placeholder="Usuario"/>
+					<input type="text" id="login-usuario" placeholder="Usuario" />
 				</div>
 			</div>
 			<div class="control-group">
 				<label class="control-label" for="login-clave">Contrase&ntilde;a</label>
 				<div class="controls">
 					<input type="password" id="login-clave"
-						placeholder="Contrase&ntilde;a"/>
+						placeholder="Contrase&ntilde;a" />
 				</div>
 			</div>
 		</div>

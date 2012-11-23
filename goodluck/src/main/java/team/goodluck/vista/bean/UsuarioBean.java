@@ -16,6 +16,7 @@ import team.goodluck.modelo.objetosnegocio.Etiqueta;
 import team.goodluck.modelo.objetosnegocio.Usuario;
 import team.goodluck.modelo.servicio.IAccesoServicio;
 import team.goodluck.modelo.servicio.IAporteServicio;
+import team.goodluck.modelo.servicio.ISugerenciaServicio;
 import team.goodluck.modelo.servicio.IUsuarioServicio;
 
 @Controller
@@ -36,6 +37,9 @@ public class UsuarioBean implements Serializable {
 
 	@Autowired
 	private IAccesoServicio accesoServicio;
+	
+	@Autowired
+	private ISugerenciaServicio sugerenciaServicio;
 
 	@PostConstruct
 	public void init() {
@@ -50,6 +54,10 @@ public class UsuarioBean implements Serializable {
 		}
 	}
 
+	public void registrarBusqueda(){
+		sugerenciaServicio.registrarBusqueda(new Usuario(3), new Etiqueta(2));	
+	}
+	
 	public void registrarUsuario() {
 		usuarioServicio.crearUsuario(nombre, clave);
 	}
