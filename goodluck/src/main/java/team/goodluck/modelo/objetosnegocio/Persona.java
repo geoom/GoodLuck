@@ -32,12 +32,12 @@ public class Persona implements java.io.Serializable {
 	private String nombre;
 	@Column(name = "per_apellido_paterno", nullable = false, length = 20)
 	private String apellidoPaterno;
-	@Column(name = "per_apellido_materno", nullable = false, length = 20)
+	@Column(name = "per_apellido_materno", nullable = true, length = 20)
 	private String apellidoMaterno;
 	@Temporal(TemporalType.DATE)
-	@Column(name = "per_fecha_nacimiento", nullable = false, length = 10)
+	@Column(name = "per_fecha_nacimiento", nullable = true, length = 10)
 	private Date fechaNacimiento;
-	@Column(name = "per_sexo", nullable = false)
+	@Column(name = "per_sexo", nullable = true)
 	private Character sexo;
 	@Column(name = "per_correo_electronico", nullable = false, length = 50)
 	private String correoElectronico;

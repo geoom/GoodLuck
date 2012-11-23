@@ -50,12 +50,30 @@ public abstract class GenericDao<T> implements IGenericDao<T> {
 	}
 
 	@Override
+	public List<T> findByNamedQuery(String namedQuery) {
+		Query query = em.createNamedQuery(namedQuery);
+		return query.getResultList();
+	}
+	@Override
 	public List<T> findByNamedQuery(String namedQuery, Map parameters) {
 		Query query = em.createNamedQuery(namedQuery);
 		setParameters(query, parameters);
 		return query.getResultList();
 	}
 
+	@Override
+	public List<T> findByNamedQuery(String namedQuery, int limit) {
+		Query query = em.createNamedQuery(namedQuery);
+		return query.setMaxResults(limit).getResultList();
+	}
+	
+	@Override
+	public List<T> findByNamedQuery(String namedQuery, Map parameters, int limit) {
+		Query query = em.createNamedQuery(namedQuery);
+		setParameters(query, parameters);
+		return query.setMaxResults(limit).getResultList();
+	}
+	
 	@Override
 	public T findSingleResultByNamedQuery(String namedQuery, Map parameters) {
 		Query query = em.createNamedQuery(namedQuery);

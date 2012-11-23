@@ -21,7 +21,13 @@ public interface IGenericDao< T > {
 
     T update(T t);   
     
+    List<T> findByNamedQuery(String namedQuery);
+    
     List<T> findByNamedQuery(String namedQuery, Map parameters);
+    
+    List<T> findByNamedQuery(String namedQuery, int limit);
+    
+    List<T> findByNamedQuery(String namedQuery, Map parameters, int limit);
     
     T findSingleResultByNamedQuery(String namedQuery, Map parameters);
 }

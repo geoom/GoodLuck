@@ -18,6 +18,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "busqueda_contexto", catalog = "goodluckdata")
+@NamedQueries({ @NamedQuery(name = "BusquedaContexto.encontrarBusquedasConMayorNroVeces", query = "SELECT bc FROM BusquedaContexto bc WHERE bc.usuario=:usuario ") })
 public class BusquedaContexto implements java.io.Serializable {
 
 	private static final long serialVersionUID = 5915425324211113104L;

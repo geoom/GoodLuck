@@ -9,6 +9,13 @@ public class BusquedaContextoId implements java.io.Serializable{
 	private int idUsuario;
 	private int idEtiqueta;
 	
+	public BusquedaContextoId(){}
+	
+	public BusquedaContextoId(int idUsuario, int idEtiqueta){
+	 this.idUsuario=idUsuario;
+	 this.idEtiqueta=idEtiqueta;
+	}
+	
 	public int getIdUsuario() {
 		return idUsuario;
 	}
