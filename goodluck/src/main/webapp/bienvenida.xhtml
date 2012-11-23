@@ -44,18 +44,35 @@ body {
 			<a class="btn btn-navbar" data-toggle="collapse"
 				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
 				class="icon-bar"></span> <span class="icon-bar"></span>
-			</a> <a class="brand" href="index.xhtml">GoodLuck</a>
+			</a> <a class="brand" href="home.xhtml">GoodLuck</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
+					<li class="active"><a href="home.xhtml">Inicio</a></li>
+					<li><a href="encontrar.xhtml">Encontrar</a></li>
 					<li><a href="ayuda.xhtml">Ayuda</a></li>
 				</ul>
-				<div class="navbar-form pull-right">
-					<a class="btn btn-success" href="#myModal" data-toggle="modal">Iniciar
-						sesi&oacute;n</a>
-				</div>
-
 			</div>
 			<!--/.nav-collapse -->
+			<div class="navbar-form pull-right">
+				<div class="btn-group">
+					<a class="btn btn-primary" href="perfil.html"><i
+						class="icon-user icon-white"></i> George Mejia</a> <a
+						class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+						href="#"> <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="nuevoAporte.xhtml"><i class="icon-upload"></i>
+								Subir aporte</a></li>
+						<li><a href="cuenta.xhtml"><i class="icon-pencil"></i> Mi
+								cuenta</a></li>
+						<li><a href="aportes.xhtml"><i class="icon-file"></i>
+								Aportes</a></li>
+						<li class="divider"></li>
+						<li><a href="index.xhtml"><i class="icon-share-alt"></i>
+								Cerrar sesi&oacute;n</a></li>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 	</header>
@@ -64,32 +81,9 @@ body {
 			<div class="row-fluid">
 				<div class="span12">
 				<div class="page-header">
-						<h2>Obtenga una cuenta, es gratuita :)</h2>
+						<h2>GoodLuck te da la bienvenida</h2>
 					</div>
-					<div class="sign-in">
-						<div class="signin-box">
-							<form id="registroCuenta">
-								<label>Nombre</label> <input id="nombre-nuevacuenta" type="text" ></input>
-								<span id="nameInfo"></span> <label>Apellidos</label> <input
-									id="apellidos-nuevacuenta" type="text"/><span
-									id="apellidosInfo"></span> <label>Correo
-										electr&oacute;nico</label> <input id="email-nuevacuenta" type="text" />
-									<span id="emailInfo"></span> <label>Nombre de usuario</label> <input
-									id="nombre-usuario-nuevacuenta" type="text" /> <span
-									id="usuarioInfo"></span> <label>Contrase&ntilde;a</label> <input
-									id="clave-nuevacuenta" type="password" /> <span id="claveInfo"></span>
-								<label class="checkbox" style="cursor: pointer"> <input
-									id="terminosCondiciones" type="checkbox" /> Estoy de acuerdo
-									con las pol&iacute;ticas y las condiciones de Goodluck.
-								</label>
-								<p style="margin-top: 20px">
-									<button id="registroCuenta_boton"
-										class="btn btn-large btn-success disabled" type="submit">
-										Terminar mi registro</button>
-								</p>
-							</form>
-						</div>
-					</div>
+					
 				</div>
 			</div>
 		</div>
