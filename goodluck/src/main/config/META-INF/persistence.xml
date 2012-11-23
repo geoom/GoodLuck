@@ -12,6 +12,8 @@
 		<class>team.goodluck.modelo.objetosnegocio.Usuario</class>
 		<class>team.goodluck.modelo.objetosnegocio.Relacion</class>
 		<class>team.goodluck.modelo.objetosnegocio.RelacionId</class>
+		<class>team.goodluck.modelo.objetosnegocio.BusquedaContexto</class>
+		<class>team.goodluck.modelo.objetosnegocio.BusquedaContextoId</class>
 		<exclude-unlisted-classes />
 		<properties>
 			<property name="eclipselink.logging.level" value="FINE" />

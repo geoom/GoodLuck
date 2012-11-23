@@ -46,6 +46,8 @@ public class Usuario implements java.io.Serializable {
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Descarga> descargas = new ArrayList<Descarga>();
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
+	private List<BusquedaContexto> busquedasContexto = new ArrayList<BusquedaContexto>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Comentario> comentarios = new ArrayList<Comentario>();
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Aporte> aportes = new ArrayList<Aporte>();
@@ -57,6 +59,14 @@ public class Usuario implements java.io.Serializable {
 		this.id = id;
 	}
 
+	public List<BusquedaContexto> getBusquedasContexto() {
+		return busquedasContexto;
+	}
+
+	public void setBusquedasContexto(List<BusquedaContexto> busquedasContexto) {
+		this.busquedasContexto = busquedasContexto;
+	}
+	
 	public Integer getId() {
 		return id;
 	}

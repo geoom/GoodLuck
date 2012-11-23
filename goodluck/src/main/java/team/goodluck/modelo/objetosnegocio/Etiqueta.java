@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,6 +22,10 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "etiqueta", catalog = "goodluckdata")
+@NamedQueries({ 
+	@NamedQuery(name = "Etiqueta.encontrarEtiquetasBuscadas", query = "SELECT eti FROM Etiqueta eti WHERE eti IN (SELECT bc.etiqueta FROM BusquedaContexto bc WHERE bc.usuario=:usuario)"),
+	@NamedQuery(name = "Etiqueta.encontrarEtiquetasDescargadas", query = "SELECT eti FROM Etiqueta eti WHERE eti IN (SELECT rel.etiqueta FROM Relacion rel WHERE rel.aporte IN (SELECT des.aporte FROM Descarga des WHERE des.usuario=:usuario)) ")
+	})
 public class Etiqueta implements java.io.Serializable {
 
 	private static final long serialVersionUID = 8941536470995367144L;
@@ -31,6 +37,8 @@ public class Etiqueta implements java.io.Serializable {
 	private String nombre;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "etiqueta")
 	private List<Relacion> relaciones = new ArrayList<Relacion>();
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "etiqueta")
+	private List<BusquedaContexto> busquedasContexto = new ArrayList<BusquedaContexto>();
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinTable(name = "relacion", catalog = "goodluckdata", joinColumns = { @JoinColumn(name = "eti_id_etiqueta", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "apo_id_aporte", nullable = false, updatable = false) })
 	private List<Aporte> aportes = new ArrayList<Aporte>();
@@ -40,6 +48,14 @@ public class Etiqueta implements java.io.Serializable {
 
 	public Etiqueta(int id) {
 		this.id = id;
+	}
+	
+	public List<BusquedaContexto> getBusquedasContexto() {
+		return busquedasContexto;
+	}
+
+	public void setBusquedasContexto(List<BusquedaContexto> busquedasContexto) {
+		this.busquedasContexto = busquedasContexto;
 	}
 
 	public List<Relacion> getRelaciones() {
