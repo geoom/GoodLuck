@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+.no-error {
+    background-image:url("#{resource['images:check.png']}");
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  background-image: url("#{resource['images:glyphicons-halflings.png']}") !important;
+}
+
+/* White icons with optional class, or on hover/active states of certain elements */
+
+.icon-white,
+.nav-tabs > .active > a > [class^="icon-"],
+.nav-tabs > .active > a > [class*=" icon-"],
+.nav-pills > .active > a > [class^="icon-"],
+.nav-pills > .active > a > [class*=" icon-"],
+.nav-list > .active > a > [class^="icon-"],
+.nav-list > .active > a > [class*=" icon-"],
+.navbar-inverse .nav > .active > a > [class^="icon-"],
+.navbar-inverse .nav > .active > a > [class*=" icon-"],
+.dropdown-menu > li > a:hover > [class^="icon-"],
+.dropdown-menu > li > a:hover > [class*=" icon-"],
+.dropdown-menu > .active > a > [class^="icon-"],
+.dropdown-menu > .active > a > [class*=" icon-"] {
+  background-image: url("#{resource['images:glyphicons-halflings-white.png']}") !important;
+}
