@@ -200,22 +200,66 @@
 		</dependency>
 	</dependencies>
 
-	<contributors>
-		<contributor>
-			<name>George</name>
+	<organization>
+		<name>Nayra</name>
+		<url>http://nayra.com.pe</url>
+	</organization>
+
+	<developers>
+		<developer>
+			<id>geoom</id>
+			<name>George Mejia</name>
 			<email>gmejia.fisi@gmail.com</email>
-			<url>https://www.facebook.com/GeoFiIsI</url>
-			<organization>Ninguna</organization>
-			<organizationUrl>http://ninguna.com</organizationUrl>
+			<url>www.fb.com/mgeooo</url>
+			<organization>Nayra</organization>
+			<organizationUrl>http://nayra.com.pe</organizationUrl>
+			<roles>
+				<role>Desarrollador</role>
+				<role>Arquitecto</role>
+				<role>Diseñador</role>
+			</roles>
+			<timezone>-5</timezone>
+			<properties>
+				<picUrl>http://es.gravatar.com/geoome</picUrl>
+				<gtalk>gmejia.fisi@gmail.com</gtalk>
+			</properties>
+		</developer>
+		<developer>
+			<id>solriver</id>
+			<name>Manuel Chavez</name>
+			<email>manuel.chavezastucuri@facebook.com</email>
+			<url>www.fb.com/manuel.chavezastucuri</url>
+			<organization>Nayra</organization>
+			<organizationUrl>http://nayra.com.pe</organizationUrl>
 			<roles>
 				<role>Desarrollador</role>
 			</roles>
 			<timezone>-5</timezone>
-			<properties>
-				<gtalk>gmejia.fisi@gmail.com</gtalk>
-			</properties>
+		</developer>
+	</developers>
+
+	<contributors>
+		<contributor>
+			<name>Jesus chanta</name>
+			<email>jesusmiguelch@gmail.com</email>
+			<url>www.fb.com/jesusmiguel.chanta</url>
+			<organization>Nayra</organization>
+			<organizationUrl>http://nayra.com.pe</organizationUrl>
+			<roles>
+				<role>Documentador</role>
+			</roles>
+			<timezone>-5</timezone>
 		</contributor>
 	</contributors>
+
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+			<comments>A business-friendly OSS license</comments>
+		</license>
+	</licenses>
 
 	<build>
 		<finalName>goodluck</finalName>
