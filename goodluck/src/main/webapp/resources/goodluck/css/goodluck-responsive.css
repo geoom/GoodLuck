@@ -34,11 +34,10 @@
 		margin-left: 20px;
 		width: 250px;
 	}
-	
 	.sign-in {
-    margin: 0 auto;
-    width: 80%;
-}
+		margin: 0 auto;
+		width: 80%;
+	}
 }
 
 /* Landscape phones */
@@ -69,11 +68,10 @@
 	.footer .pull-right {
 		float: none;
 	}
-	
 	.sign-in {
-    margin: 0 auto;
-    width: 95%;
-}
+		margin: 0 auto;
+		width: 95%;
+	}
 }
 
 @media ( max-width : 979px) and (min-width: 768px) {
@@ -82,5 +80,11 @@
 	}
 	.aporte-contenido .span9 {
 		width: 508px;
+	}
+}
+
+@media ( max-width : 979px) {
+	body {
+		padding-top: 0 !important;
 	}
 }

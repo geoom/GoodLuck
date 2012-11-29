@@ -60,8 +60,13 @@ img {
 	margin-bottom: 10px;
 }
 
+.sign-in .btn{
+	display: inline-block;
+	float: right;
+}
+
 input[type="text"],input[type="password"] {
-	width: 95%;
+	width: 97%;
 }
 
 .checkbox-login {

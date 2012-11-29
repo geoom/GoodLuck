@@ -26,3 +26,7 @@
 .dropdown-menu > .active > a > [class*=" icon-"] {
   background-image: url("#{resource['images:glyphicons-halflings-white.png']}") !important;
 }
+
+.passwordInputText{
+		 -webkit-text-security: disc; 
+}
