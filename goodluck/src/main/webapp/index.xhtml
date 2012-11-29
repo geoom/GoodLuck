@@ -19,20 +19,19 @@
 
 	<!-- GoodLuck -->
 	<h:outputStylesheet library="goodluck" name="css/goodluck.css" />
-	<h:outputStylesheet library="goodluck" name="css/jsf.css" />
 
 	<style type="text/css">
-body {
-	padding-top: 40px;
-}
-
-.sidebar-nav {
-	padding: 9px 0;
-}
-
-.footer-links a {
-	color: #06AAFC;
-}
+		body {
+			padding-top: 40px;
+		}
+		
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+		
+		.footer-links a {
+			color: #06AAFC;
+		}
 </style>
 
 	<h:outputStylesheet library="bootstrap"
@@ -73,19 +72,15 @@ body {
 						<div class="sign-in" style="width: 340px;">
 							<div class="signin-front">
 								<h:form>
-									<h:inputText value="#{accesoBean.usuario.nombre}"
-										placeholder="Nombre de usuario" />
-									<h:inputText value="#{accesoBean.usuario.clave}"
-										autocomplete="off" class="passwordInputText"
-										placeholder="Contrase&ntilde;a" />
+									<h:inputText value="#{accesoBean.usuario.nombre}" placeholder="Nombre de usuario" />
+									<h:inputText value="#{accesoBean.usuario.clave}" autocomplete="off" class="passwordInputText" placeholder="Contrase&ntilde;a" />
 									<p style="display: block">
 										<label class="checkbox"
 											style="display: inline-block; cursor: pointer"> <h:selectBooleanCheckbox />
 											Recordarme
 										</label>
-										<h:commandButton action="#{accesoBean.solicitarAcceso()}"
-											value="Ingresar" class="btn btn-primary" />
-
+										<h:commandButton action="#{accesoBean.validarIdentidad()}" value="Ingresar" class="btn btn-primary btn-login"/>
+											
 									</p>
 									<p style="display: block">
 										<a href="nuevaCuenta.xhtml">&iquest;No tienes una cuenta?</a>
