@@ -21,21 +21,17 @@
 	<h:outputStylesheet library="goodluck" name="css/goodluck.css" />
 
 	<style type="text/css">
-body {
-	padding-top: 40px;
-}
-
-.sidebar-nav {
-	padding: 9px 0;
-}
-
-.footer-links a {
-	color: #06AAFC;
-}
-
-.passwordInputText{
- -webkit-text-security: disc; 
-}
+		body {
+			padding-top: 40px;
+		}
+		
+		.sidebar-nav {
+			padding: 9px 0;
+		}
+		
+		.footer-links a {
+			color: #06AAFC;
+		}
 </style>
 
 	<h:outputStylesheet library="bootstrap"
@@ -73,7 +69,7 @@ body {
 							oportuna y completa. Atrevete a vivir una experiencia nueva.</p>
 					</div>
 					<div class="span6">
-						<div class="sign-in">
+						<div class="sign-in" style="width: 340px;">
 							<div class="signin-front">
 								<h:form>
 									<h:inputText value="#{accesoBean.usuario.nombre}" placeholder="Nombre de usuario" />
@@ -83,10 +79,8 @@ body {
 											style="display: inline-block; cursor: pointer"> <h:selectBooleanCheckbox />
 											Recordarme
 										</label>
-										<h:commandButton action="#{accesoBean.validarIdentidad()}" value="Ingresar" class="btn btn-primary"
-											style="float: right" />
-											<!-- <a href="home.xhtml" class="btn btn-primary"
-											style="float: right">Ingresar</a> -->
+										<h:commandButton action="#{accesoBean.validarIdentidad()}" value="Ingresar" class="btn btn-primary"/>
+											
 									</p>
 									<p style="display: block">
 										<a href="nuevaCuenta.xhtml">&iquest;No tienes una cuenta?</a>

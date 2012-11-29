@@ -16,7 +16,7 @@ public class AccesoServicio implements IAccesoServicio {
 	@Override
 	@Transactional(readOnly = true)
 	public boolean validarIdentidad(String nombre, String clave) {
-		Usuario usuarioIdentificado = null; 
+		Usuario usuarioIdentificado = null;
 		try{
 		usuarioIdentificado=daoUsuario.encontrarUsuario(nombre, clave);
 		}catch(org.springframework.dao.EmptyResultDataAccessException ex){

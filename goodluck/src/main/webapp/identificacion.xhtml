@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta name="description" content="" />
 
-
 	<!-- Bootstrap -->
 	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
 
@@ -65,28 +64,37 @@ body {
 			<div class="row-fluid">
 				<div class="span12">
 					<div class="page-header">
-						<h2>Obtenga una cuenta, es gratuita :)</h2>
+						<h2>Identificate para acceder</h2>
 					</div>
 					<div class="sign-in">
-							<div class="signin-front">
-								<h:form>
-									<h:inputText value="#{accesoBean.usuario.nombre}" placeholder="Nombre de usuario" />
-									<h:inputText value="#{accesoBean.usuario.clave}" autocomplete="off" class="passwordInputText" placeholder="Contrase&ntilde;a" />
-										<p style="display: block">
-										<label class="checkbox" style="display: inline-block; cursor: pointer"> 
-											<input type="checkbox" /> Recordarme
-										</label>
-										<!--
-										    <button type="submit" class="btn btn-primary" style="float: right">Ingresar</button> -->
-										<a href="home.xhtml" class="btn btn-primary btn-large"
-											style="float: right">Ingresar</a>
-									</p>
-									<p style="display: block">
-										<a href="nuevaCuenta.xhtml">&iquest;No tienes una cuenta?</a>
-									</p>
-								</h:form>
-							</div>
+						<div class="signin-front">
+							<h:form>
+								<h:panelGroup rendered="#{accesoBean.falloLogin}">
+									<div class="alert alert-error">
+									<button type="button" class="close" data-dismiss="alert">×</button>
+										<strong>Creo que no eres t&uacute;!</strong>
+										 Seguramente digitaste mal el usuario o clave, int&eacute;ntalo de nuevo
+									</div>
+								</h:panelGroup>
+								<h:inputText value="#{accesoBean.usuario.nombre}"
+									style="witdh: 100%;" placeholder="Nombre de usuario" />
+								<h:inputText value="#{accesoBean.usuario.clave}"
+									autocomplete="off" class="passwordInputText"
+									placeholder="Contrase&ntilde;a" />
+								<p style="display: block">
+									<label class="checkbox"
+										style="display: inline-block; cursor: pointer"> <input
+										type="checkbox" /> Recordarme
+									</label>
+									<h:commandButton action="#{accesoBean.validarIdentidad()}"
+										value="Ingresar" class="btn btn-primary" />
+								</p>
+								<p style="display: block">
+									<a href="nuevaCuenta.xhtml">&iquest;No tienes una cuenta?</a>
+								</p>
+							</h:form>
 						</div>
+					</div>
 				</div>
 			</div>
 		</div>
