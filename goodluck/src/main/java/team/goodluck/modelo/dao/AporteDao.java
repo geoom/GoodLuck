@@ -1,6 +1,5 @@
 package team.goodluck.modelo.dao;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,11 +13,18 @@ import team.goodluck.modelo.objetosnegocio.Etiqueta;
 public class AporteDao extends GenericDao<Aporte> implements IAporteDao {
 
 	@Override
-	public List<Aporte> encontrarAportes(String titulo, String... etiquetas){
+	public List<Aporte> encontrarAportes(String titulo, List<String> etiquetas){
 		Map<String, Object> mapa = new HashMap<String, Object>();
-		mapa.put("etiquetas", Arrays.asList(etiquetas));	
+		mapa.put("etiquetas", etiquetas);	
 		mapa.put("titulo", titulo);
-		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesContexto", mapa);
+		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesPorTituloEtiquetas", mapa);
+	}
+	
+	@Override
+	public List<Aporte> encontrarAportes(List<String> etiquetas){
+		Map<String, Object> mapa = new HashMap<String, Object>();
+		mapa.put("etiquetas", etiquetas);	
+		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesPorEtiquetas", mapa);
 	}
 	
 	@Override

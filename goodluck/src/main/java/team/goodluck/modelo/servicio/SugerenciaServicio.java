@@ -36,7 +36,7 @@ public class SugerenciaServicio implements ISugerenciaServicio {
 
 	@Override
 	@Transactional
-	public List<Aporte> obtenerLoMasVotado(Usuario usuario) {
+	public List<Aporte> obtenerLoMasVotado() {
 		return aporteDao.encontrarAportesMasVotados();
 	}
 	

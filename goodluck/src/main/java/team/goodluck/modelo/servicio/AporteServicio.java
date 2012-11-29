@@ -16,13 +16,19 @@ public class AporteServicio implements IAporteServicio {
 	IAporteDao daoAporte;
 
 	@Transactional
-	public List<Aporte> encontrarAportesPorContextoTitulo(String titulo, String... etiquetas) {
-     return daoAporte.encontrarAportes(titulo, etiquetas);
+	public List<Aporte> encontrarAportesPorContextoTitulo(String titulo, List<String> etiquetas) {
+		List<Aporte> aportes;
+		if (titulo.equals(" ")) {
+			aportes = daoAporte.encontrarAportes(etiquetas);
+		} else {
+			aportes = daoAporte.encontrarAportes(titulo, etiquetas);
+		}
+		return aportes;
 	}
 
 	@Transactional
-	public Aporte registrarAporte(Aporte aporte){
-	 return daoAporte.create(aporte);
+	public Aporte registrarAporte(Aporte aporte) {
+		return daoAporte.create(aporte);
 	}
-	
+
 }

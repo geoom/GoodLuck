@@ -1,161 +1,180 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html lang="en"  xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
-  	<h:head>
-    <meta charset="utf-8"/>
-    <title>Encuentra</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta charset="utf-8" />
+	<title>Encuentra</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="author" content="" />
 
-    <!-- Bootstrap -->
-    <h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
-    
-    <!-- GoodLuck -->
-     <h:outputStylesheet library="goodluck" name="css/goodluck.css" />
-     <h:outputStylesheet library="goodluck" name="css/jsf.css" />
-        
-        <style type="text/css">
-              body {
-                padding-top: 40px;
-              }
-              .sidebar-nav {
-                padding: 9px 0;
-              }
-              #contexto-buscar_tagsinput{
+	<!-- Bootstrap -->
+	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
 
-              }
-              .popover .popover-title{
-                  margin: 0;
-                  padding: 0;
-                  border: 0;
-              }
-        </style>
-         <h:outputStylesheet library="bootstrap" name="css/bootstrap-responsive.css" />
- <h:outputStylesheet library="goodluck" name="css/goodluck-responsive.css" />
-   
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
+	<!-- GoodLuck -->
+	<h:outputStylesheet library="goodluck" name="css/goodluck.css" />
+	<h:outputStylesheet library="goodluck" name="css/jsf.css" />
+
+	<style type="text/css">
+body {
+	padding-top: 40px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+#contexto-buscar_tagsinput {
+	
+}
+
+.popover .popover-title {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+</style>
+	<h:outputStylesheet library="bootstrap"
+		name="css/bootstrap-responsive.css" />
+	<h:outputStylesheet library="goodluck"
+		name="css/goodluck-responsive.css" />
+
+	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!-- The icon -->
-    
-    <!-- Xoxco -->
-     <h:outputStylesheet library="xoxco" name="jquery_tagsinput.css" />
-  
-    <link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico"/>
-  </h:head>
+	<!-- The icon -->
 
-   <h:body data-spy="scroll" data-target=".bs-docs-sidebar">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </a>
-              <a class="brand" href="home.xhtml">GoodLuck</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li><a href="home.xhtml">Inicio</a></li>
-            <li class="active"><a href="encontrar.xhtml">Encontrar</a></li>
-            <li><a href="ayuda.xhtml">Ayuda</a></li>
-                </ul>
-              </div><!--/.nav-collapse -->
-              <div class="navbar-form pull-right">
-                <div class="btn-group">
-                    <a class="btn btn-primary" href="perfil.xhtml"><i class="icon-user icon-white"></i> George Mejia</a>
-                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-                      <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a href="nuevoAporte.xhtml"><i class="icon-upload"></i> Subir aporte</a></li>
-                      <li><a href="cuenta.xhtml"><i class="icon-pencil"></i> Mi cuenta</a></li>
-                      <li><a href="aportes.xhtml"><i class="icon-file"></i> Aportes</a></li>
-                      <li class="divider"></li>
-                      <li><a href="index.xhtml"><i class="icon-share-alt"></i> Cerrar sesi&oacute;n</a></li>
-                    </ul>
-                  </div>
-          </div>
-            </div>
-          </div>
-    </nav>
-    <header class="tema-principal">
-      <div style="padding: 40px 0; position: relative; background-color: #F5F5F5;">
-        <div class="container">
-          <h1>Encuentra</h1>
-          <p class="lead">Solo escribe lo que necesitas, nosotros lo encontraremos...</p>
-        </div>
-      </div>
-    </header>
+	<!-- Xoxco -->
+	<h:outputStylesheet library="xoxco" name="jquery_tagsinput.css" />
 
-  <div class="container">
+	<link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico" />
+</h:head>
 
-    <div class="search">
-      <form>
-        <div class="row-fluid">
-          <div class="span4" style="min-height: 40px;">
-            <label>Contexto</label>
-            <input id="contexto-buscar" class="tags" type="text"/>
-          </div>
-          <div class="span4">
-            <label>Descripci&oacute;n</label>
-            <input id="descripcion-buscar" type="text"/>
-          </div>
-          <div class="span4">
-            <p style="margin-top: 20px">
-              <a id="botonBusqueda" class="btn btn-large btn-primary"  href="resultados.xhtml">Iniciar b&uacute;squeda</a>
-            </p>
-          </div>              
-        </div> 
-      </form>         
-    </div>
-  </div>
+<h:body data-spy="scroll" data-target=".bs-docs-sidebar">
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse"
+				data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+				class="icon-bar"></span> <span class="icon-bar"></span>
+			</a> <a class="brand" href="home.xhtml">GoodLuck</a>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+					<li><a href="home.xhtml">Inicio</a></li>
+					<li class="active"><a href="encontrar.xhtml">Encontrar</a></li>
+					<li><a href="ayuda.xhtml">Ayuda</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+			<div class="navbar-form pull-right">
+				<div class="btn-group">
+					<a class="btn btn-primary" href="perfil.xhtml"><i
+						class="icon-user icon-white"></i> George Mejia</a> <a
+						class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+						href="#"> <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="nuevoAporte.xhtml"><i class="icon-upload"></i>
+								Subir aporte</a></li>
+						<li><a href="cuenta.xhtml"><i class="icon-pencil"></i> Mi
+								cuenta</a></li>
+						<li><a href="aportes.xhtml"><i class="icon-file"></i>
+								Aportes</a></li>
+						<li class="divider"></li>
+						<li><a href="index.xhtml"><i class="icon-share-alt"></i>
+								Cerrar sesi&oacute;n</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	</nav>
+	<header class="tema-principal">
+	<div
+		style="padding: 40px 0; position: relative; background-color: #F5F5F5;">
+		<div class="container">
+			<h1>Encuentra</h1>
+			<p class="lead">Solo escribe lo que necesitas, nosotros lo
+				encontraremos...</p>
+		</div>
+	</div>
+	</header>
+
+	<div class="container">
+
+		<div class="search">
+			<h:form prependId="false">
+				<div class="row-fluid">
+					<div class="span4" style="min-height: 40px;">
+						<label>Contexto</label>
+						<h:inputText id="contexto-buscar" value="#{busquedaBean.contexto}"
+							class="tags" />
+					</div>
+					<div class="span4">
+						<label>Descripci&oacute;n</label>
+						 <h:inputText id="descripcion-buscar" value="#{busquedaBean.descripcion}"/>
+					</div>
+					<div class="span4">
+						<p style="margin-top: 20px">
+							<h:commandButton id="botonBusqueda"
+								action="#{busquedaBean.obtenerContexto()}"
+								value="Iniciar búsqueda" class="btn btn-large btn-primary" />
+						</p>
+					</div>
+				</div>
+			</h:form>
+		</div>
+	</div>
 
 
 
-        <!-- Footer
+	<!-- Footer
         ================================================== -->
-        <footer class="footer">
-          <div class="container">
-            <p class="pull-right">
-                <select id="lang-opcion" class="lang-opcion" style="">
-                  <option value="es"> ‪Español (Latinoamérica)‬ </option>
-                  <option value="en"> ‪English (United States)‬ </option>
-                </select>
-            </p>
-            <p>Descubre a GoodLuck en un <a href="http://www.youtube.com/watch?v=APdeX6p9Zno" target="_blank">Video</a>.</p>
-            <ul class="footer-links">
-              <li><a href="#">Acerca de GoodLuck</a></li>
-              <li><a href="#">Pol&iacute;ticas del programa</a></li>
-              <li><a href="#">Condiciones de uso</a></li>
-            </ul>
-            <p>&copy; 2012 GoodLuck</p>
-          </div>
-        </footer>
+	<footer class="footer">
+	<div class="container">
+		<p class="pull-right">
+			<select id="lang-opcion" class="lang-opcion" style="">
+				<option value="es">‪Español (Latinoamérica)‬</option>
+				<option value="en">‪English (United States)‬</option>
+			</select>
+		</p>
+		<p>
+			Descubre a GoodLuck en un <a
+				href="http://www.youtube.com/watch?v=APdeX6p9Zno" target="_blank">Video</a>.
+		</p>
+		<ul class="footer-links">
+			<li><a href="#">Acerca de GoodLuck</a></li>
+			<li><a href="#">Pol&iacute;ticas del programa</a></li>
+			<li><a href="#">Condiciones de uso</a></li>
+		</ul>
+		<p>&copy; 2012 GoodLuck</p>
+	</div>
+	</footer>
 
 
- <h:outputScript library="bootstrap" name="js/ext/jquery.js" />
-     <h:outputScript library="bootstrap" name="js/bootstrap_min.js" />
-    <h:outputScript library="xoxco" name="jquery_tagsinput.js" />
-        <h:outputScript library="goodluck" name="js/application.js" />      
-  
-    <script type="text/javascript">
-      $(function() {
-            $('#contexto-buscar').tagsInput({
-              width:'auto',
-              defaultText :''
-            })
-            $("#contexto-buscar_tag").popover({
-              trigger: 'focus', 
-              content: 'Indicanos sobre que campo de conocimiento estamos hablando',
-              placement: 'bottom'
-            });
-            $("#contexto-buscar_tagsinput").css("min-height","40px");
-      });
-    </script>
-    </h:body>
+	<h:outputScript library="bootstrap" name="js/ext/jquery.js" />
+	<h:outputScript library="bootstrap" name="js/bootstrap_min.js" />
+	<h:outputScript library="xoxco" name="jquery_tagsinput.js" />
+	<h:outputScript library="goodluck" name="js/application.js" />
+
+	<script type="text/javascript">
+		$(function() {
+			$('#contexto-buscar').tagsInput({
+				width : 'auto',
+				defaultText : ''
+			})
+			$("#contexto-buscar_tag")
+					.popover(
+							{
+								trigger : 'focus',
+								content : 'Indicanos sobre que campo de conocimiento estamos hablando',
+								placement : 'bottom'
+							});
+			$("#contexto-buscar_tagsinput").css("min-height", "40px");
+		});
+	</script>
+</h:body>
 </html>

@@ -7,7 +7,8 @@ import team.goodluck.modelo.objetosnegocio.Etiqueta;
 
 public interface IAporteDao extends IGenericDao<Aporte>{
 
-	List<Aporte> encontrarAportes(String titulo, String... etiquetas);
+	List<Aporte> encontrarAportes(String titulo, List<String> etiquetas);
+	List<Aporte> encontrarAportes(List<String> etiquetas);
 	List<Aporte> encontrarAportesMasBuscados(List<Etiqueta> etiquetas);
 	List<Aporte> encontrarAportesMasVotados();
 }

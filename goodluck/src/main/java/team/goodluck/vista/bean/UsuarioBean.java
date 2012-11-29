@@ -28,6 +28,7 @@ public class UsuarioBean implements Serializable {
 	private String clave;
 	private Boolean habilitado;
 	private String nombre;
+	private Usuario usuario;
 	
 	@Autowired
 	private IAporteServicio aporteServicio;
@@ -44,10 +45,11 @@ public class UsuarioBean implements Serializable {
 	@PostConstruct
 	public void init() {
 		habilitado = Boolean.TRUE;
+		usuario=new Usuario();
 	}
 
 	public void validarIdentidad() {
-		if (accesoServicio.validarIdentidad(nombre, clave)) {
+		if (accesoServicio.validarIdentidad(usuario)) {
 			log.debug("usuario identificado !");
 		} else {
 			log.debug("usuario NO identificado !!");
@@ -57,18 +59,14 @@ public class UsuarioBean implements Serializable {
 	public void registrarBusqueda(){
 		sugerenciaServicio.registrarBusqueda(new Usuario(3), new Etiqueta(2));	
 	}
-	
-	public void registrarUsuario() {
-		usuarioServicio.crearUsuario(nombre, clave);
-	}
 
 	public void registrarAporte(){
 		Aporte ap=new Aporte();
 		ap.setTitulo("DCE");
 		List<Etiqueta> etiquetas=new ArrayList<Etiqueta>();
-		etiquetas.add(new Etiqueta(1));
-		etiquetas.add(new Etiqueta(2));
 		etiquetas.add(new Etiqueta(3));
+		etiquetas.add(new Etiqueta(4));
+		etiquetas.add(new Etiqueta(5));
 		ap.setEtiquetas(etiquetas);
 		ap.setUsuario(new Usuario(1));  
 		aporteServicio.registrarAporte(ap);
@@ -76,7 +74,7 @@ public class UsuarioBean implements Serializable {
 	
 	public void encontrarAportes(){
 	 List<Aporte> aportesEncontrados=new ArrayList<Aporte>();
-	 aportesEncontrados=aporteServicio.encontrarAportesPorContextoTitulo("DCE","Programacion");
+//	 aportesEncontrados=aporteServicio.encontrarAportesPorContextoTitulo("DCE","Programacion");
 	 for(Aporte a:aportesEncontrados){
 	  System.out.println(a.getId());	 
 	 }

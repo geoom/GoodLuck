@@ -30,9 +30,9 @@ public class AccesoBean implements java.io.Serializable{
 		falloLogin = Boolean.FALSE;
 	}
 	
-	public String validarIdentidad() {
+	public String solicitarAcceso() {
 		String destino="";
-		if (accesoServicio.validarIdentidad(usuario.getNombre(), usuario.getClave())) {
+		if (accesoServicio.validarIdentidad(usuario)) {
 			destino="home.xhtml";
 			identificado = Boolean.TRUE;
 			falloLogin = Boolean.FALSE;
@@ -42,7 +42,6 @@ public class AccesoBean implements java.io.Serializable{
 			falloLogin = Boolean.TRUE;
 			log.debug("Usuario NO identificado: Redirigiendo a "+destino);
 		}
-	 	
 		return destino;
 	}
 

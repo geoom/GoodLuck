@@ -28,7 +28,7 @@ public class RegistroBean implements java.io.Serializable {
 		usuario = new Usuario();
 	}
 
-	public String registrarUsuario() {
+	public String afiliarUsuario() {
 		usuarioServicio.registrarUsuario(usuario, persona);
 		log.debug("Usuario creado: " + usuario.getId());
 		return "index.xhtml";
