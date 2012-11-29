@@ -23,6 +23,11 @@
 			<name>java.net m2 repo</name>
 			<url>http://download.java.net/maven/2</url>
 		</repository>
+		<repository>
+			<id>prime-repo</id>
+			<name>Prime Repo</name>
+			<url>http://repository.primefaces.org</url>
+		</repository>
 	</repositories>
 
 	<dependencies>
@@ -67,6 +72,14 @@
 		</dependency>
 		<!-- JSF library dependecy end -->
 
+		<!-- Primefaces library -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>3.3</version>
+		</dependency>
+
+		<!-- Omnifaces library -->
 		<dependency>
 			<groupId>org.omnifaces</groupId>
 			<artifactId>omnifaces</artifactId>
