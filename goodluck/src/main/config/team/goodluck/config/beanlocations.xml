@@ -11,6 +11,16 @@
 	<!-- Auto scan the components -->
 	<context:component-scan base-package="team.goodluck" />
 
+	<bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+		<property name="scopes">
+			<map>
+				<entry key="view">
+					<bean class="team.goodluck.util.ViewScope" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
 	<bean
 		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 

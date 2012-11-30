@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import org.primefaces.model.DefaultUploadedFile;
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -30,6 +31,10 @@ public class SubidaAporteBean implements java.io.Serializable {
 	private UploadedFile archivoPortada; // imagen
 	private UploadedFile archivoAporte; // pdf
 	private String contexto;
+
+	@Autowired
+	@Qualifier("accesoBean")
+	private AccesoBean accesoBean;
 	@Autowired
 	private IAporteServicio aporteServicio;
 
@@ -41,19 +46,20 @@ public class SubidaAporteBean implements java.io.Serializable {
 		aporte = new Aporte();
 		archivoAporte = new DefaultUploadedFile();
 	}
-	
+
 	public String accionSubirAporte() {
 		String destino = "aportes";
-		almacenar(archivoPortada, rutaDestinoImagen);
-		almacenar(archivoAporte, rutaDestinoAporte);
-		// aporteServicio.registrarAporte(aporte, obtenerContexto());
+		// almacenar(archivoPortada, rutaDestinoImagen);
+		// almacenar(archivoAporte, rutaDestinoAporte);
+		aporteServicio.registrarAporte(accesoBean.getUsuario(), aporte,
+				obtenerContexto());
 		return destino;
 	}
-	
-	public void almacenar(UploadedFile archivo,String rutaAlmacen){
+
+	public void almacenar(UploadedFile archivo, String rutaAlmacen) {
 		try {
-			copyFile(archivo.getFileName(),
-					archivo.getInputstream(),rutaAlmacen);
+			copyFile(archivo.getFileName(), archivo.getInputstream(),
+					rutaAlmacen);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -109,6 +115,14 @@ public class SubidaAporteBean implements java.io.Serializable {
 
 	public void setArchivoAporte(UploadedFile archivoAporte) {
 		this.archivoAporte = archivoAporte;
+	}
+
+	public String getContexto() {
+		return contexto;
+	}
+
+	public void setContexto(String contexto) {
+		this.contexto = contexto;
 	}
 
 }

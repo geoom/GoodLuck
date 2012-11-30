@@ -31,7 +31,7 @@ body {
 	<!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <!-- Xoxco -->
+	<!-- Xoxco -->
 	<h:outputStylesheet library="xoxco" name="jquery_tagsinput.css" />
 	<!-- The icon -->
 	<link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico" />
@@ -92,25 +92,33 @@ body {
 					<h:form id="registroAporte" prependId="false"
 						enctype="multipart/form-data">
 						<label>T&iacute;tulo</label>
-						<h:inputText id="tituloAporte" value="#{subidaAporteBean.aporte.titulo}" />
+						<h:inputText id="tituloAporte"
+							value="#{subidaAporteBean.aporte.titulo}" />
 						<label>Autor</label>
-						<h:inputText id="autorAporte" value="#{subidaAporteBean.aporte.autor}" /> 
+						<h:inputText id="autorAporte"
+							value="#{subidaAporteBean.aporte.autor}" />
 						<label>Idioma</label>
-						<select>
-							<option>Idioma1</option>
-							<option>Idioma2</option>
-							<option>Idioma3</option>
-						</select>
+						<h:selectOneMenu value="#{subidaAporteBean.aporte.idioma}">
+							<f:selectItem itemValue=""/>
+							<f:selectItem itemValue="Español" />
+							<f:selectItem itemValue="Inglés"/>
+							<f:selectItem itemValue="Francés"/>
+							<f:selectItem itemValue="Italiano"/>
+						</h:selectOneMenu>
 						<label>Descripci&oacute;n</label>
-						<textarea rows="3"></textarea>
+						<h:inputTextarea value="#{subidaAporteBean.aporte.descripcion}" rows="3"></h:inputTextarea>
 						<label>N&uacute;mero de p&aacute;ginas</label>
-						<h:inputText id="numeroPaginasAporte"  />
+						<h:inputText id="numeroPaginasAporte" value="#{subidaAporteBean.aporte.paginas}"/>
 						<label>Imagen de portada</label>
-						<p:fileUpload mode="simple" value="#{subidaAporteBean.archivoPortada}" sizeLimit="1000000" description="Selecciona una imagen" />
+						<p:fileUpload mode="simple"
+							value="#{subidaAporteBean.archivoPortada}" sizeLimit="1000000"
+							description="Selecciona una imagen" />
 						<label>Aporte</label>
-						<p:fileUpload mode="simple" value="#{subidaAporteBean.archivoAporte}" sizeLimit="1000000" description="Selecciona tu archivo" />
+						<p:fileUpload mode="simple"
+							value="#{subidaAporteBean.archivoAporte}" sizeLimit="1000000"
+							description="Selecciona tu archivo" />
 						<label>Etiquetas</label>
-						<h:inputText id="etiquetasAporte" class="tags" />
+						<h:inputText id="etiquetasAporte" value="#{subidaAporteBean.contexto}" class="tags" />
 						<p style="margin-top: 20px;">
 							<h:commandButton action="#{subidaAporteBean.accionSubirAporte()}"
 								value="Subir aporte" id="botonRegistraAporte"

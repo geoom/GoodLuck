@@ -9,7 +9,7 @@ public interface IAporteServicio {
 	List<Aporte> encontrarAportesPorContextoTitulo(String titulo,
 			List<String> etiquetas);
 
-	Aporte registrarAporte(Aporte aporte, List<String> nombresEtiquetas);
+	Aporte registrarAporte(Usuario usuario, Aporte aporte, List<String> nombresEtiquetas);
 
 	Aporte actualizarAporte(Aporte aporte);
 
