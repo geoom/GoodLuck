@@ -57,6 +57,10 @@ public class Aporte implements java.io.Serializable {
 	private boolean habilitado;
 	@Column(name = "apo_votos", nullable = false)
 	private int votos;
+	@Column(name = "apo_ruta", nullable = false)
+	private String ruta;
+	@Column(name = "apo_ruta_portada", nullable = false)
+	private String portada;
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
 	private List<Descarga> descargas = new ArrayList<Descarga>();
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "aporte")
@@ -156,6 +160,22 @@ public class Aporte implements java.io.Serializable {
 
 	public void setVotos(int votos) {
 		this.votos = votos;
+	}
+
+	public String getRuta() {
+		return ruta;
+	}
+
+	public void setRuta(String ruta) {
+		this.ruta = ruta;
+	}
+
+	public String getPortada() {
+		return portada;
+	}
+
+	public void setPortada(String portada) {
+		this.portada = portada;
 	}
 
 	public List<Descarga> getDescargas() {
