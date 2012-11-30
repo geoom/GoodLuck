@@ -13,7 +13,6 @@
 	<h:outputStylesheet library="bootstrap" name="css/bootstrap.css" />
 	<h:outputStylesheet library="goodluck" name="css/goodluck.css" />
 	<h:outputStylesheet library="goodluck" name="css/jsf.css" />
-
 	<style type="text/css">
 body {
 	padding-top: 40px;
@@ -32,6 +31,8 @@ body {
 	<!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <!-- Xoxco -->
+	<h:outputStylesheet library="xoxco" name="jquery_tagsinput.css" />
 	<!-- The icon -->
 	<link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico" />
 </h:head>
@@ -107,6 +108,8 @@ body {
 						<h:inputText id="numeroPaginasAporte" value="" />
 						<label>Imagen de portada</label>
 						<p:fileUpload value="" mode="simple" />
+						<label>Etiquetas</label>
+						<h:inputText id="etiquetasAporte" value="" class="tags" />
 						<p style="margin-top: 20px;">
 							<h:commandButton action="#{registroBean.registrarUsuario()}"
 								value="Subir aporte" id="botonRegistraAporte"
@@ -117,8 +120,6 @@ body {
 			</div>
 		</div>
 	</div>
-
-
 
 	<!-- Footer
         ================================================== -->
@@ -143,12 +144,19 @@ body {
 	</div>
 	</footer>
 
-
 	<h:outputScript library="bootstrap" name="js/ext/jquery.js" />
 	<h:outputScript library="bootstrap" name="js/bootstrap_min.js" />
+	<h:outputScript library="xoxco" name="jquery_tagsinput.js" />
 	<h:outputScript library="goodluck" name="js/application.js" />
 
-
+	<script type="text/javascript">
+		$(function() {
+			$('#etiquetasAporte').tagsInput({
+				width : 'auto',
+				defaultText : ''
+			});
+		});
+	</script>
 
 </h:body>
 </html>
