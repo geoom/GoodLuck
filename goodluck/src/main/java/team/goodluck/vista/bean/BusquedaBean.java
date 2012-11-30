@@ -4,42 +4,54 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import team.goodluck.modelo.objetosnegocio.Aporte;
+import team.goodluck.modelo.objetosnegocio.Usuario;
 import team.goodluck.modelo.servicio.IAporteServicio;
+import team.goodluck.modelo.servicio.ISugerenciaServicio;
 
 @Controller
 @Scope("request")
 public class BusquedaBean implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1118996546649913694L;
+	static final Logger log = Logger.getLogger(BusquedaBean.class);
 	private String contexto;
 	private String descripcion;
 	private List<Aporte> resultadosBusqueda;
 	@Autowired
 	private IAporteServicio aporteServicio;
+	@Autowired
+	private ISugerenciaServicio sugerenciaServicio;
+	private Usuario usuarioLogeado;
 
 	@PostConstruct
 	public void init() {
 		descripcion = " ";
 	}
-	
-	public String obtenerContexto() {
-		String[] etiquetas = contexto.split(",");
-		for (String s : etiquetas) {
-			System.out.println(s);
-		}
-		resultadosBusqueda = aporteServicio.encontrarAportesPorContextoTitulo(descripcion, Arrays.asList(etiquetas));
+
+	public String obtenerResultados() {
+		List<String> etiquetas=obtenerContexto();
+		resultadosBusqueda = aporteServicio.encontrarAportesPorContextoTitulo(descripcion, etiquetas);
 		for (Aporte a : resultadosBusqueda) {
 			System.out.println(a.getId());
 		}
+		recordarBusquedas(etiquetas);
 		return "resultados.xhtml";
+	}
+
+	private void recordarBusquedas(List<String> etiquetas){
+	 	sugerenciaServicio.registrarBusqueda(usuarioLogeado, etiquetas);
+	}
+	
+	private List<String> obtenerContexto() {
+		String[] etiquetas = contexto.split(",");
+		return Arrays.asList(etiquetas);
 	}
 
 	public String getContexto() {

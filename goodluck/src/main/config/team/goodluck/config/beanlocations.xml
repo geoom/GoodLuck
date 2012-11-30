@@ -1,6 +1,5 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
@@ -11,6 +10,9 @@
 
 	<!-- Auto scan the components -->
 	<context:component-scan base-package="team.goodluck" />
+
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
 
 	<bean id="jpaDialect"
 		class="org.springframework.orm.jpa.vendor.EclipseLinkJpaDialect" />

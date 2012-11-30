@@ -10,4 +10,6 @@ public interface IEtiquetaDao extends IGenericDao<Etiqueta> {
 	List<Etiqueta> encontrarEtiquetasBuscadas(List<BusquedaContexto> masBuscadas);
 
 	List<Etiqueta> encontrarEtiquetasDescargadas(Usuario usuario);
+	
+	Etiqueta encontrarPorNombre(String nombre);
 }

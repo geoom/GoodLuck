@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -44,7 +45,7 @@ public class AccesoBean implements java.io.Serializable{
 		}
 		return destino;
 	}
-
+	
 	public Usuario getUsuario() {
 		return usuario;
 	}

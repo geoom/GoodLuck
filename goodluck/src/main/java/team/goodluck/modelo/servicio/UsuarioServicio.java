@@ -1,12 +1,9 @@
 package team.goodluck.modelo.servicio;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 import team.goodluck.modelo.dao.IPersonaDao;
@@ -37,4 +34,10 @@ public class UsuarioServicio implements IUsuarioServicio, Serializable {
 		return daoUsuario.create(usuarioACrear);
 	}
 
+	@Override
+	@Transactional
+	public Usuario actualizarUsuario(Usuario usuario){
+		return daoUsuario.update(usuario);
+	}
+	
 }

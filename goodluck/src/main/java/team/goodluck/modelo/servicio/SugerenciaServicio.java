@@ -1,5 +1,6 @@
 package team.goodluck.modelo.servicio;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,41 +21,48 @@ import team.goodluck.modelo.objetosnegocio.Usuario;
 public class SugerenciaServicio implements ISugerenciaServicio {
 
 	@Autowired
-	private IEtiquetaDao etiquetaDao;
+	private IEtiquetaDao daoEtiqueta;
 	@Autowired
-	private IAporteDao aporteDao;
+	private IAporteDao daoAporte;
 	@Autowired
-	private IBusquedaContextoDao busquedaDao;
+	private IBusquedaContextoDao daoBusqueda;
 
 	@Override
 	@Transactional
 	public List<Aporte> obtenerLoMasActual(Usuario usuario) {
-		List<Etiqueta> busquedas = etiquetaDao
-				.encontrarEtiquetasBuscadas(busquedaDao.encontrarBusquedasConMayorNroVeces(usuario));
-		return aporteDao.encontrarAportesMasBuscados(busquedas);
+		List<Etiqueta> busquedas = daoEtiqueta
+				.encontrarEtiquetasBuscadas(daoBusqueda.encontrarBusquedasConMayorNroVeces(usuario));
+		return daoAporte.encontrarAportesMasBuscados(busquedas);
 	}
 
 	@Override
 	@Transactional
 	public List<Aporte> obtenerLoMasVotado() {
-		return aporteDao.encontrarAportesMasVotados();
+		return daoAporte.encontrarAportesMasVotados();
 	}
 	
 	@Override
 	@Transactional
-	public BusquedaContexto registrarBusqueda(Usuario usuario, Etiqueta etiqueta) {
-		BusquedaContexto busqueda = new BusquedaContexto();
-		Date fecha = new Date();
-		busqueda.setId(new BusquedaContextoId(usuario.getId(), etiqueta.getId()));
-		BusquedaContexto busquedaEncontrada = busquedaDao.find(busqueda.getId());
-		if (busquedaEncontrada== null) {
-			busqueda.setUltimaFecha(fecha);
-			return busquedaDao.create(busqueda);
-		} else {
-			busquedaEncontrada.setNroVeces(busquedaEncontrada.getNroVeces() + 1);
-			busquedaEncontrada.setUltimaFecha(fecha);
-            return busquedaDao.update(busquedaEncontrada);
+	public void registrarBusqueda(Usuario usuario, List<String> nombresEtiquetas) {
+		List<Etiqueta> etiquetas = new ArrayList<Etiqueta>();
+		for (String nombre : nombresEtiquetas) {
+			registrarBusquedaContexto(usuario,daoEtiqueta.encontrarPorNombre(nombre));
 		}
 	}
 
+	private BusquedaContexto registrarBusquedaContexto(Usuario usuario, Etiqueta etiqueta) {
+		BusquedaContexto busqueda = new BusquedaContexto();
+		Date fecha = new Date();
+		busqueda.setId(new BusquedaContextoId(usuario.getId(), etiqueta.getId()));
+		BusquedaContexto busquedaEncontrada = daoBusqueda.find(busqueda.getId());
+		if (busquedaEncontrada== null) {
+			busqueda.setUltimaFecha(fecha);
+			return daoBusqueda.create(busqueda);
+		} else {
+			busquedaEncontrada.setNroVeces(busquedaEncontrada.getNroVeces() + 1);
+			busquedaEncontrada.setUltimaFecha(fecha);
+            return daoBusqueda.update(busquedaEncontrada);
+		}
+	}
+	
 }

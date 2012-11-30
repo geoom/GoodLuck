@@ -27,4 +27,11 @@ public class EtiquetaDao extends GenericDao<Etiqueta> implements IEtiquetaDao{
 		return (List<Etiqueta>)findByNamedQuery("Etiqueta.encontrarEtiquetasDescargadas", mapa);	
 	}
 	
+	@Override
+	public Etiqueta encontrarPorNombre(String nombre){
+		Map<String, Object> mapa = new HashMap<String, Object>();
+		mapa.put("nombre", nombre);
+		return (Etiqueta)findSingleResultByNamedQuery("Etiqueta.encontrarEtiquetaPorNombre", mapa);	
+	}
+	
 }

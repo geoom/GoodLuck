@@ -57,7 +57,7 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public void registrarBusqueda(){
-		sugerenciaServicio.registrarBusqueda(new Usuario(3), new Etiqueta(2));	
+//		sugerenciaServicio.registrarBusqueda(new Usuario(3), new Etiqueta(2));	
 	}
 
 	public void registrarAporte(){
@@ -69,7 +69,7 @@ public class UsuarioBean implements Serializable {
 		etiquetas.add(new Etiqueta(5));
 		ap.setEtiquetas(etiquetas);
 		ap.setUsuario(new Usuario(1));  
-		aporteServicio.registrarAporte(ap);
+//		aporteServicio.registrarAporte(ap);
 	}
 	
 	public void encontrarAportes(){

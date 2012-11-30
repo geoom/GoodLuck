@@ -10,5 +10,5 @@ import team.goodluck.modelo.objetosnegocio.Usuario;
 public interface ISugerenciaServicio {
 	List<Aporte> obtenerLoMasActual(Usuario usuario);
 	List<Aporte> obtenerLoMasVotado();
-	BusquedaContexto registrarBusqueda(Usuario usuario, Etiqueta etiqueta);
+	void registrarBusqueda(Usuario usuario, List<String> nombresEtiquetas);
 }

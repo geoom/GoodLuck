@@ -14,6 +14,8 @@ import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -21,6 +23,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "comentario", catalog = "goodluckdata")
+@NamedQueries({ 
+	@NamedQuery(name = "Comentario.encontrarComentariosPorAporte", query = "SELECT com FROM Comentario com WHERE com.aporte=:aporte") 
+})
 public class Comentario implements java.io.Serializable {
 
 	private static final long serialVersionUID = -8657526105088746178L;

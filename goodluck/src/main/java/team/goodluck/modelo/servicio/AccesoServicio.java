@@ -11,7 +11,7 @@ import team.goodluck.modelo.objetosnegocio.Usuario;
 public class AccesoServicio implements IAccesoServicio {
 
 	@Autowired
-	IUsuarioDao daoUsuario;
+	private IUsuarioDao daoUsuario;
 
 	@Override
 	@Transactional(readOnly = true)
@@ -22,8 +22,10 @@ public class AccesoServicio implements IAccesoServicio {
 		}catch(org.springframework.dao.EmptyResultDataAccessException ex){
 			System.out.println("No existe el usuario.");
 		}
-		if (usuarioIdentificado != null)
+		if (usuarioIdentificado != null){
+			usuario=usuarioIdentificado;
 			return true;
+		}
 		return false;
 	}
 

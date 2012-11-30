@@ -24,6 +24,7 @@ import javax.persistence.*;
 		@NamedQuery(name = "Aporte.encontrarAportesPorTituloEtiquetas", query = "SELECT DISTINCT(a) FROM Aporte a, Relacion rel WHERE a.titulo LIKE CONCAT('%',CONCAT(:titulo,'%')) AND rel.aporte=a AND rel IN (SELECT r FROM Relacion r WHERE r.etiqueta.nombre IN :etiquetas)"),
 		@NamedQuery(name = "Aporte.encontrarAportesPorDescripcionEtiquetas", query = "SELECT DISTINCT(a) FROM Aporte a, Relacion rel WHERE a.descripcion LIKE CONCAT('%',CONCAT(:descripcion,'%')) AND rel.aporte=a AND rel IN (SELECT r FROM Relacion r WHERE r.etiqueta.nombre IN :etiquetas)"),
 		@NamedQuery(name = "Aporte.encontrarAportesPorEtiquetas", query = "SELECT DISTINCT(a) FROM Aporte a, Relacion rel WHERE rel.aporte=a AND rel IN (SELECT r FROM Relacion r WHERE r.etiqueta.nombre IN :etiquetas)"),
+		@NamedQuery(name = "Aporte.encontrarAportesDeUsuario", query = "SELECT a FROM Aporte a WHERE a.usuario=:usuario"),
 		@NamedQuery(name = "Aporte.encontrarAportesMasBuscados", query = "SELECT DISTINCT(a) FROM Aporte a, Relacion rel WHERE rel.aporte=a AND rel IN (SELECT r FROM Relacion r WHERE r.etiqueta IN :etiquetas) ORDER BY a.fechaEntrada") })
 public class Aporte implements java.io.Serializable {
 
