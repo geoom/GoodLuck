@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta charset="utf-8" />
 	<title>Aportes</title>
@@ -57,9 +58,8 @@ body {
 				<div class="btn-group">
 					<a class="btn btn-primary" href="perfil.xhtml"> <i
 						class="icon-user icon-white"></i> George Mejia
-					</a> <a class="btn btn-primary dropdown-toggle"
-						data-toggle="dropdown" href="#" style="height: 20px"> <span
-						class="caret"></span>
+					</a> <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+						href="#" style="height: 20px"> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="nuevoAporte.xhtml"><i class="icon-upload"></i>
@@ -99,77 +99,52 @@ body {
 				<a class="btn  btn-success" href="#"> Eliminar grupo </a>
 			</div>
 
-			<ul class="lista-aportes">
-				<li>
-					<div class="item-aporte">
-						<input type="hidden" value="0000001" />
-						<div class="portada">
-							<img src="resources/img-book/java2.jpeg" height="703" width="543"></img>
-						</div>
-						<div class="info">
-							<h3>Java Pro Programming</h3>
-							<p>Breth Sccott</p>
-							<span class="cantidad-destacas"> <i class="icon-star"></i>
-								2432
-							</span>
-							<div class="opciones">
-								<button id="btn-eliminar" class="btn" type="submit">Eliminar</button>
-								<button id="btn-editar" class="btn" type="submit">Editar</button>
-							</div>
-						</div>
-						<div class="opcion-seleccion">
-							<span>Marcar este aporte</span>
-						</div>
-					</div>
-
-				</li>
-				<li>
-					<div class="item-aporte">
-						<input type="hidden" value="0000002"/>
-						<div class="portada">
-							<img src="resources/img-book/Guia-HTML5-OpenLibra-110x153.gif"
-								height="703" width="543" />
-						</div>
-						<div class="info">
-							<h3>Curso de HTML5</h3>
-							<p>Andre Rivas</p>
-							<span class="cantidad-destacas"> <i class="icon-star"></i>
-								678
-							</span>
-							<div class="opciones">
-								<button id="btn-eliminar" class="btn" type="submit">Eliminar</button>
-								<button id="btn-editar" class="btn" type="submit">Editar</button>
-							</div>
-						</div>
-						<div class="opcion-seleccion">
-							<span>Marcar este aporte</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="item-aporte">
-						<input type="hidden" value="0000003" />
-						<div class="portada">
-							<img src="resources/img-book/images.jpeg" height="703"
-								width="543" />
-						</div>
-						<div class="info">
-							<h3>Curso de node.js</h3>
-							<p>Mike Cantelon</p>
-							<span class="cantidad-destacas"> <i class="icon-star"></i>
-								45
-							</span>
-							<div class="opciones">
-								<button id="btn-eliminar" class="btn" type="submit">Eliminar</button>
-								<button id="btn-editar" class="btn" type="submit">Editar</button>
-							</div>
-						</div>
-						<div class="opcion-seleccion">
-							<span>Marcar este aporte</span>
-						</div>
-					</div>
-				</li>
-			</ul>
+			<h:form id="listaAportes">
+				<p:outputPanel
+					rendered="#{not empty gestorAportesBean.listaAportes}"
+					style="margin: 0 auto; width: 900px;">
+					<h:dataTable value="#{gestorAportesBean.datosTablaAportes}"
+						var="aporte" style="width: 100%">
+						<h:column>
+							<ul class="lista-aportes">
+								<li>
+									<div class="item-aporte">
+										<input type="hidden" value="#{aporte.id}" />
+										<div class="portada">
+											<img src="resources/img-book/java2.jpeg" height="703"
+												width="543"></img>
+										</div>
+										<div class="info">
+											<h3>#{aporte.titulo}</h3>
+											<p>#{aporte.autor}</p>
+											<span class="cantidad-destacas"> <i class="icon-star"></i>
+												2432
+											</span>
+											<div class="opciones">
+												<h:commandButton action="#{gestorAportesBean.eliminarAporte()}"
+													value="Eliminar" class="btn" />
+													<h:commandButton action="#{gestorAportesBean.editarAporte()}"
+													value="Eliminar" class="btn" />
+											</div>
+										</div>
+										<div class="opcion-seleccion">
+											<span>Marcar este aporte</span>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</h:column>
+					</h:dataTable>
+				</p:outputPanel>
+				<p:outputPanel rendered="#{empty gestorAportesBean.listaAportes}"
+					style="margin: 0 auto; width: 900px;">
+					<p style="font-size: 14px; font-weight: bold; margin-left: 30px">
+						No tienes ning
+						&uacuate;
+						n aporte :(.
+					</p>
+				</p:outputPanel>
+			</h:form>
 		</div>
 	</div>
 
