@@ -14,5 +14,5 @@ import team.goodluck.modelo.objetosnegocio.Usuario;
 public interface IUsuarioServicio {
 
 	Usuario registrarUsuario(Usuario usuarioACrear, Persona personaSolicitante);
-	Usuario actualizarUsuario(Usuario usuario);
+	Usuario actualizarUsuario(Usuario usuario, Persona persona);
 }

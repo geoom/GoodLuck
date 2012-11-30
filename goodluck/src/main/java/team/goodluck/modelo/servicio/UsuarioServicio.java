@@ -36,7 +36,9 @@ public class UsuarioServicio implements IUsuarioServicio, Serializable {
 
 	@Override
 	@Transactional
-	public Usuario actualizarUsuario(Usuario usuario){
+	public Usuario actualizarUsuario(Usuario usuario, Persona persona){
+		daoPersona.update(persona);
+		usuario.setPersona(persona);
 		return daoUsuario.update(usuario);
 	}
 	

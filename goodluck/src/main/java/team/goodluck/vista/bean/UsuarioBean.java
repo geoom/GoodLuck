@@ -49,11 +49,11 @@ public class UsuarioBean implements Serializable {
 	}
 
 	public void validarIdentidad() {
-		if (accesoServicio.validarIdentidad(usuario)) {
-			log.debug("usuario identificado !");
-		} else {
-			log.debug("usuario NO identificado !!");
-		}
+//		if (accesoServicio.validarIdentidad(usuario)) {
+//			log.debug("usuario identificado !");
+//		} else {
+//			log.debug("usuario NO identificado !!");
+//		}
 	}
 
 	public void registrarBusqueda(){
