@@ -18,6 +18,8 @@ public class AccesoBean implements java.io.Serializable {
 	private static final long serialVersionUID = -7209403056095508087L;
 	static final Logger log = Logger.getLogger(AccesoBean.class);
 	private Usuario usuario;
+	private String nombre;
+	private String clave;
 	private Boolean identificado;
 	private Boolean falloLogin;
 
@@ -33,8 +35,10 @@ public class AccesoBean implements java.io.Serializable {
 
 	public String solicitarAcceso() {
 		String destino = "";
+		usuario.setNombre(nombre);
+		usuario.setClave(clave);
 		usuario = accesoServicio.validarIdentidad(usuario);
-		if (usuario != null) {
+		if (usuario.getId() != null) {
 			destino = "home.xhtml";
 			identificado = Boolean.TRUE;
 			falloLogin = Boolean.FALSE;
@@ -44,8 +48,13 @@ public class AccesoBean implements java.io.Serializable {
 			falloLogin = Boolean.TRUE;
 			log.debug("Usuario NO identificado: Redirigiendo a " + destino);
 		}
-		System.out.println("------------------------IDUUSUARIO"+ usuario.getId());
+		clean();
 		return destino;
+	}
+
+	public void clean() {
+		nombre = "";
+		clave = "";
 	}
 
 	public Usuario getUsuario() {
@@ -58,6 +67,22 @@ public class AccesoBean implements java.io.Serializable {
 
 	public Boolean getFalloLogin() {
 		return falloLogin;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getClave() {
+		return clave;
+	}
+
+	public void setClave(String clave) {
+		this.clave = clave;
 	}
 
 }

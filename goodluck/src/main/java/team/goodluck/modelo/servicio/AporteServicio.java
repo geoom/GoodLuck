@@ -44,11 +44,12 @@ public class AporteServicio implements IAporteServicio {
 	
 	@Override
 	@Transactional
-	public Aporte registrarAporte(Aporte aporte, List<String> nombresEtiquetas) {
+	public Aporte registrarAporte(Usuario usuario, Aporte aporte, List<String> nombresEtiquetas) {
 		List<Etiqueta> etiquetas = new ArrayList<Etiqueta>();
 		for (String nombre : nombresEtiquetas) {
 			etiquetas.add(daoEtiqueta.encontrarPorNombre(nombre));
 		}
+		aporte.setUsuario(usuario);
 		aporte.setFechaEntrada(new Date());
 		aporte.setEtiquetas(etiquetas);
 		return daoAporte.create(aporte);
