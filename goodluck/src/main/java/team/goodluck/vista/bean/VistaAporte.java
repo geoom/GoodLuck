@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -16,15 +17,21 @@ import team.goodluck.modelo.servicio.IAporteServicio;
 import team.goodluck.modelo.servicio.IComentarioServicio;
 
 @Controller
-@Scope("view")
+@Scope("session")
 public class VistaAporte implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3420957399390427151L;
 	static final Logger log = Logger.getLogger(VistaAporte.class);
 	private Aporte aporte;
-	private Usuario usuario;
 	private String comentario;
 	private List<Comentario> comentarios;
+	
+	@Autowired
+	@Qualifier("resultadosBean")
+	private ResultadosBean resultadosBean;
+	@Autowired
+	@Qualifier("accesoBean")
+	private AccesoBean accesoBean;
 
 	@Autowired
 	private IComentarioServicio comentarioServicio;
@@ -33,6 +40,7 @@ public class VistaAporte implements java.io.Serializable {
 
 	@PostConstruct
 	public void init() {
+		aporte=resultadosBean.getAporteSeleccionado();
 		cargarComentarios();
 	}
 
@@ -41,7 +49,7 @@ public class VistaAporte implements java.io.Serializable {
 	}
 
 	public void hacerComentario() {
-		comentarioServicio.registrarComentario(usuario, aporte, comentario);
+		comentarioServicio.registrarComentario(accesoBean.getUsuario(), aporte, comentario);
 	}
 
 	public void destacarAporte() {

@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "etiqueta", catalog = "goodluckdata")
 @NamedQueries({ 
-	@NamedQuery(name = "Etiqueta.encontrarEtiquetasBuscadas", query = "SELECT eti FROM Etiqueta eti WHERE eti IN (SELECT bc.etiqueta FROM BusquedaContexto bc WHERE bc IN :masbuscadas)"),
+	@NamedQuery(name = "Etiqueta.encontrarEtiquetasBuscadas", query = "SELECT eti FROM Etiqueta eti WHERE eti IN (SELECT bc.etiqueta FROM BusquedaContexto bc WHERE bc IN :masBuscadas)"),
 	@NamedQuery(name = "Etiqueta.encontrarEtiquetaPorNombre", query = "SELECT eti FROM Etiqueta eti WHERE eti.nombre=:nombre"),
 	@NamedQuery(name = "Etiqueta.encontrarEtiquetasDescargadas", query = "SELECT eti FROM Etiqueta eti WHERE eti IN (SELECT rel.etiqueta FROM Relacion rel WHERE rel.aporte IN (SELECT des.aporte FROM Descarga des WHERE des.usuario=:usuario)) ")
 	})

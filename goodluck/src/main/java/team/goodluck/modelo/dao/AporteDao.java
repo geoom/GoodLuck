@@ -18,14 +18,14 @@ public class AporteDao extends GenericDao<Aporte> implements IAporteDao {
 		Map<String, Object> mapa = new HashMap<String, Object>();
 		mapa.put("etiquetas", etiquetas);	
 		mapa.put("titulo", titulo);
-		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesPorTituloEtiquetas", mapa);
+		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesPorTituloEtiquetas", mapa, 12);
 	}
 	
 	@Override
 	public List<Aporte> encontrarAportes(List<String> etiquetas){
 		Map<String, Object> mapa = new HashMap<String, Object>();
 		mapa.put("etiquetas", etiquetas);	
-		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesPorEtiquetas", mapa);
+		return (List<Aporte>)findByNamedQuery("Aporte.encontrarAportesPorEtiquetas", mapa, 12);
 	}
 	
 	@Override

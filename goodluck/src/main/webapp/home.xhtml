@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Good Luck</title>
@@ -16,12 +17,12 @@
 	<!-- GoodLuck -->
 	<h:outputStylesheet library="goodluck" name="css/goodluck.css" />
 	<h:outputStylesheet library="goodluck" name="css/jsf.css" />
-	
-	<style type="text/css">
 
+	<style type="text/css">
 body {
 	padding-top: 60px;
 }
+
 .sidebar-nav {
 	padding: 9px 0;
 }
@@ -54,6 +55,7 @@ body {
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
+			m
 			<div class="navbar-form pull-right">
 				<div class="btn-group">
 					<a class="btn btn-primary" href="perfil.html"><i
@@ -82,6 +84,33 @@ body {
 			<section>
 			<h2>Más popular</h2>
 			<hr />
+			<div class="row-fluid">
+				<ui:repeat var="ap" value="#{aportesPopularesBean.aportesMasVotados}">
+					<div class="span2 aporte" rel="popover"
+						data-content="&lt;p&gt;Mary norres&lt;/p&gt;                     &lt;p&gt;Español&lt;/p&gt;                     &lt;p&gt;Curso de aplicaciones android 4.0&lt;/p&gt;"
+						data-original-title="Curso de aplicaciones android">
+						<a href="#">
+							<div class="content-aporte">
+								<div class="portada">
+									<h:graphicImage
+										value="resources/img-book/Curso-Desarrollo-Android-v2-OpenLibra-110x153.gif"
+										height="703" width="543" />
+								</div>
+								<div class="titulo">
+									<span>#{ap.titulo}</span>
+								</div>
+							</div>
+						</a>
+					</div>
+				</ui:repeat>
+			</div>
+			</section>
+
+			<!--  
+			<section>
+			<h2>Más popular</h2>
+			<hr />
+			<ui:repeat></ui:repeat>
 			<div class="row-fluid">
 				<div class="span2 aporte" rel="popover"
 					data-content="&lt;p&gt;David Well&lt;/p&gt;                     &lt;p&gt;Español&lt;/p&gt;                     &lt;p&gt;Curso para desarrollar aplicaciones para iphone e ipad&lt;/p&gt;"
@@ -178,6 +207,8 @@ body {
 				</div>
 			</div>
 			</section>
+			-->
+
 			<section>
 			<h2>Más actual</h2>
 			<hr />

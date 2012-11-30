@@ -26,7 +26,7 @@ public class AportesPopularesBean implements java.io.Serializable {
 
 	@PostConstruct
 	public void init() {
-		// cargarAportesPopulares();
+		 cargarAportesPopulares();
 	}
 
 	private void cargarAportesPopulares() {

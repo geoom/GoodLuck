@@ -7,6 +7,7 @@ import javax.annotation.Resources;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -18,18 +19,22 @@ public class ResultadosBean implements java.io.Serializable{
 
 	private static final long serialVersionUID = -3740210894626070539L;
 	static final Logger log = Logger.getLogger(ResultadosBean.class);
+	@Autowired
+	@Qualifier("busquedaBean")
+	private BusquedaBean busquedaBean;
 	private List<Aporte> resultadosBusqueda;
 	private Aporte aporteSeleccionado;
 	
 	
-//	@PostConstruct	
-//	public void init(){
-//		aporteSeleccionado=new Aporte();
-//		for (Aporte a : resultadosBusqueda) {
-//			System.out.println("------------ResultadosBEAN-------");
-//			System.out.println(a.getId());
-//		}
-//	}
+	@PostConstruct	
+	public void init(){
+		resultadosBusqueda=busquedaBean.getResultadosBusqueda();
+		aporteSeleccionado=new Aporte();
+		for (Aporte a : resultadosBusqueda) {
+			System.out.println("------------ResultadosBEAN-------");
+			System.out.println(a.getId());
+		}
+	}
 	
 	public void seleccionarAporte(){
 	}

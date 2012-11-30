@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -20,18 +21,21 @@ public class AportesActualesBean implements java.io.Serializable{
 	private static final long serialVersionUID = 8513834785095024478L;
 	static final Logger log = Logger.getLogger(AportesActualesBean.class);
 	private List<Aporte> aportesMasBuscados;
-	private Usuario usuarioLogeado;
 	private Aporte aporteSeleccionado;
+	
+	@Autowired
+	@Qualifier("accesoBean")
+	private AccesoBean accesoBean;
 	@Autowired
 	private ISugerenciaServicio sugerenciaServicio;
 
 	@PostConstruct
 	public void init(){
-//		cargarAportesActuales();
+		cargarAportesActuales();
 	}
 	
 	private void cargarAportesActuales(){
-		aportesMasBuscados=sugerenciaServicio.obtenerLoMasActual(usuarioLogeado);
+		aportesMasBuscados=sugerenciaServicio.obtenerLoMasActual(accesoBean.getUsuario());
 	}
 
 	public List<Aporte> getAportesMasBuscados() {

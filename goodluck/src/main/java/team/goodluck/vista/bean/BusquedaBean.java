@@ -7,6 +7,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
@@ -28,7 +29,9 @@ public class BusquedaBean implements java.io.Serializable {
 	private IAporteServicio aporteServicio;
 	@Autowired
 	private ISugerenciaServicio sugerenciaServicio;
-	private Usuario usuarioLogeado;
+	@Autowired
+	@Qualifier("accesoBean")
+	private AccesoBean accesoBean;
 
 	@PostConstruct
 	public void init() {
@@ -46,7 +49,7 @@ public class BusquedaBean implements java.io.Serializable {
 	}
 
 	private void recordarBusquedas(List<String> etiquetas){
-	 	sugerenciaServicio.registrarBusqueda(usuarioLogeado, etiquetas);
+	 	sugerenciaServicio.registrarBusqueda(accesoBean.getUsuario(), etiquetas);
 	}
 	
 	private List<String> obtenerContexto() {

@@ -2,6 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Encuentra</title>
@@ -30,8 +31,10 @@ body {
 	
 }
 </style>
-	<h:outputStylesheet library="bootstrap" name="css/bootstrap-responsive.css" />
-	<h:outputStylesheet library="goodluck" name="css/goodluck-responsive.css" />
+	<h:outputStylesheet library="bootstrap"
+		name="css/bootstrap-responsive.css" />
+	<h:outputStylesheet library="goodluck"
+		name="css/goodluck-responsive.css" />
 
 	<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
 	<!--[if lt IE 9]>
@@ -41,7 +44,7 @@ body {
 	<!-- Xoxco -->
 	<h:outputStylesheet library="xoxco" name="jquery.tagsinput.css" />
 
-	<link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico"/>
+	<link rel="shortcut icon" href="resources/goodluck/ico/favicon.ico" />
 </h:head>
 
 <h:body data-spy="scroll" data-target=".bs-docs-sidebar">
@@ -68,7 +71,6 @@ body {
 						href="#"> <span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu">
-					<h:outputText value="#{resultadosBean.aporteSeleccionado}"/>
 						<li><a href="nuevoAporte.xhtml"><i class="icon-upload"></i>
 								Subir aporte</a></li>
 						<li><a href="cuenta.xhtml"><i class="icon-pencil"></i> Mi
@@ -98,6 +100,52 @@ body {
 		<div id="search-results">
 			<div id="results">
 				<div class="row-fluid">
+					<ui:repeat var="ap" value="#{resultadosBean.resultadosBusqueda}">
+						<div class="span2 aporte" rel="popover"
+							data-content="&lt;p&gt;Herbled swich&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;The complete reference Javan 2 fifth edition&lt;/p&gt;"
+							data-original-title="Java 2 The complete reference">
+							<a href="#">
+								<div class="content-aporte">
+									<div class="portada">
+										<img src="resources/img-book/java1.jpeg" height="703"
+											width="543" />
+									</div>
+									<div class="titulo">
+										<span>#{ap.titulo}</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</ui:repeat>
+				</div>
+				<div class="row-fluid">
+					<ui:repeat var="ap" value="#{resultadosBean.resultadosBusqueda}">
+						<div class="span2 aporte" rel="popover"
+							data-content="&lt;p&gt;Herbled swich&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;The complete reference Javan 2 fifth edition&lt;/p&gt;"
+							data-original-title="Java 2 The complete reference">
+							<a href="#">
+								<div class="content-aporte">
+									<div class="portada">
+										<img src="resources/img-book/java1.jpeg" height="703"
+											width="543" />
+									</div>
+									<div class="titulo">
+										<span>#{ap.titulo}e</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</ui:repeat>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 
+	<div class="container">
+		<div id="search-results">
+			<div id="results">
+				<div class="row-fluid">
 					<div class="span2 aporte" rel="popover"
 						data-content="&lt;p&gt;Herbled swich&lt;/p&gt;                     &lt;p&gt;Ingles&lt;/p&gt;                     &lt;p&gt;The complete reference Javan 2 fifth edition&lt;/p&gt;"
 						data-original-title="Java 2 The complete reference">
@@ -105,7 +153,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java1.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Java 2 The complete reference</span>
@@ -120,7 +168,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java10.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Java Development with the Spring </span>
@@ -135,7 +183,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java3.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Head First Java</span>
@@ -150,7 +198,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java4.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Java 2 Certification</span>
@@ -165,7 +213,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java5.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">Java 6</div>
 							</div>
@@ -178,7 +226,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java6.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Java 7 NIO</span>
@@ -195,7 +243,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java7.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Beginning Programming with Java</span>
@@ -210,7 +258,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java8.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Learning Java</span>
@@ -225,7 +273,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java9.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Practical Database with Java</span>
@@ -240,7 +288,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java2.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Pro Java Programming</span>
@@ -255,7 +303,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java11.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Java 7</span>
@@ -270,7 +318,7 @@ body {
 							<div class="content-aporte">
 								<div class="portada">
 									<img src="resources/img-book/java14.jpeg" height="703"
-										width="543"/>
+										width="543" />
 								</div>
 								<div class="titulo">
 									<span>Java</span>
@@ -279,13 +327,10 @@ body {
 						</a>
 					</div>
 				</div>
-
 			</div>
 		</div>
-
 	</div>
-
-
+ -->
 
 	<!-- Footer
         ================================================== -->
@@ -317,20 +362,22 @@ body {
 	<h:outputScript library="goodluck" name="js/application.js" />
 
 	<script type="text/javascript">
-      $(function() {
-            $('#contexto-buscar').tagsInput({
-              width:'auto',
-              defaultText :''
-            })
-            $("#contexto-buscar_tag").popover({
-              trigger: 'focus', 
-              content: 'Indicanos sobre que campo de conocimiento estamos hablando',
-              placement: 'bottom'
-            });
-            $("#botonBusqueda").click(function(){
-              $("#search-results").css("display", "block");
-            });
-      });
-    </script>
+		$(function() {
+			$('#contexto-buscar').tagsInput({
+				width : 'auto',
+				defaultText : ''
+			})
+			$("#contexto-buscar_tag")
+					.popover(
+							{
+								trigger : 'focus',
+								content : 'Indicanos sobre que campo de conocimiento estamos hablando',
+								placement : 'bottom'
+							});
+			$("#botonBusqueda").click(function() {
+				$("#search-results").css("display", "block");
+			});
+		});
+	</script>
 </h:body>
 </html>
