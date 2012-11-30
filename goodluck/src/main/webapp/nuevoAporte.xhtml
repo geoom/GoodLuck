@@ -92,10 +92,9 @@ body {
 					<h:form id="registroAporte" prependId="false"
 						enctype="multipart/form-data">
 						<label>T&iacute;tulo</label>
-						<h:inputText id="tituloAporte" value="" />
+						<h:inputText id="tituloAporte" value="#{subidaAporteBean.aporte.titulo}" />
 						<label>Autor</label>
-						<h:inputText id="autorAporte"
-							value="#{registroBean.persona.apellidoPaterno}" />
+						<h:inputText id="autorAporte" value="#{subidaAporteBean.aporte.autor}" /> 
 						<label>Idioma</label>
 						<select>
 							<option>Idioma1</option>
@@ -105,13 +104,15 @@ body {
 						<label>Descripci&oacute;n</label>
 						<textarea rows="3"></textarea>
 						<label>N&uacute;mero de p&aacute;ginas</label>
-						<h:inputText id="numeroPaginasAporte" value="" />
+						<h:inputText id="numeroPaginasAporte"  />
 						<label>Imagen de portada</label>
-						<p:fileUpload value="" mode="simple" />
+						<p:fileUpload mode="simple" value="#{subidaAporteBean.archivoPortada}" sizeLimit="1000000" description="Selecciona una imagen" />
+						<label>Aporte</label>
+						<p:fileUpload mode="simple" value="#{subidaAporteBean.archivoAporte}" sizeLimit="1000000" description="Selecciona tu archivo" />
 						<label>Etiquetas</label>
-						<h:inputText id="etiquetasAporte" value="" class="tags" />
+						<h:inputText id="etiquetasAporte" class="tags" />
 						<p style="margin-top: 20px;">
-							<h:commandButton action="#{registroBean.registrarUsuario()}"
+							<h:commandButton action="#{subidaAporteBean.accionSubirAporte()}"
 								value="Subir aporte" id="botonRegistraAporte"
 								class="btn btn-large btn-success" />
 						</p>
